@@ -13,7 +13,7 @@ export default function Billboard() {
         description: "There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth",
         duration: 3600, //seconds
         year: "2021",
-        director: "John Doe",
+        creators: "John Doe",
         cast: "John Doe, Jane Doe,John Doe, Jane Doe",
         genres: "Drama",
         tags: "Drama, Faith,Drama, Faith,Drama, Faith",

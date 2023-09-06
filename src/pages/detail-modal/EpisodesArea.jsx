@@ -1,10 +1,9 @@
 import React from "react";
 import {VideoPlayIcon} from "@/graphics/VidepPlayIcon";
-import {BsChevronDown} from "react-icons/bs";
 import {BiSolidChevronDown, BiSolidChevronUp} from "react-icons/bi";
 
 export default function EpisodesArea({videoData}) {
-    const [playIconVisible, setPlayIconVisible] = React.useState(false);
+   // const [playIconVisible, setPlayIconVisible] = React.useState(false);
     const [currentEpisode, setCurrentEpisode] = React.useState(0);
     const [currentEpisodeRange, setCurrentEpisodeRange] = React.useState([0, 3]);
 
@@ -12,7 +11,7 @@ export default function EpisodesArea({videoData}) {
         setCurrentEpisode(index);
     }
 
-    function mouseLeave(index) {
+    function mouseLeave() {
         setCurrentEpisode(-1)
     }
 
