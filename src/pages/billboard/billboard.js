@@ -18,7 +18,7 @@ export default function Billboard() {
                 width={1920}
                 height={1080}
                 quality={100}
-                className="object-cover max-h-[100vh] flex justify-center items-center brightness-[0.7]"
+                className="object-cover max-h-[100vh] flex justify-center items-center brightness-[0.6]"
             />
             <div className={`absolute bottom-[300px] text-white flex flex-col ml-[50px]
             items-start w-[40%] h-[250px] justify-between`}>
