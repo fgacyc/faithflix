@@ -26,15 +26,15 @@ export default function VideoDetailsArea({videoData}) {
             <div className={"w-4/12"}>
                 <div className={" pb-3"}>
                     <span className={"text-[#777]"}>Cast: </span>
-                    <span>{videoData.cast.toString()}</span>
+                    <span>{videoData.cast.join(', ')}</span>
                 </div>
                 <div className={" pb-3"}>
                     <span className={"text-[#777]"}>Genres: </span>
-                    <span>{videoData.genres.toString()}</span>
+                    <span>{videoData.genres.join(', ')}</span>
                 </div>
                 <div className={" pb-3"}>
                     <span className={"text-[#777]"}>This video is: </span>
-                    <span>{videoData.tags.toString()}</span>
+                    <span>{videoData.tags.join(', ')}</span>
                 </div>
             </div>
         </div>
