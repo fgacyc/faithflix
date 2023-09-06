@@ -7,14 +7,14 @@ import HeaderAvatar from "./header-avatar";
 
 
 export default function Header({className}) {
-
+    const avatarURL = "/images/Netflix-avatar.png";
 
     return (
         <header
             className={`
       h-[65px]
       bg-gradient-to-b 
-      from-[rgba(0,0,0,0.7)] to-transparent]
+      from-[rgba(0,0,0,0.7)] to-transparent
       text-white
       flex flex-row justify-between	items-center
       px-[55px]
@@ -44,7 +44,7 @@ export default function Header({className}) {
             <div className={"flex flex-row justify-between items-center w-[155px]"}>
                 <SearchIcon className="cursor-pointer"/>
                 <NotificationIcon className="cursor-pointer"/>
-                <HeaderAvatar/>
+                <HeaderAvatar avatarURL={avatarURL}/>
             </div>
         </header>
     );

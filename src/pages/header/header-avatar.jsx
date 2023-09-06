@@ -5,7 +5,7 @@ import {FaRegUser} from "react-icons/fa";
 import {PiStudent} from "react-icons/pi";
 import {Divider} from "@nextui-org/react";
 
-export default  function HeaderAvatar() {
+export default  function HeaderAvatar({avatarURL}) {
     const [isRotated, setIsRotated] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
     const [isLogged, setIsLogged] = useState(false);
@@ -28,7 +28,7 @@ export default  function HeaderAvatar() {
                      onMouseLeave={mouseLeave}
                 >
                     <img
-                        src="/images/Netflix-avatar.png"
+                        src={avatarURL}
                         className="w-[32px] rounded"
                         alt={"avatar"}></img>
                     <span

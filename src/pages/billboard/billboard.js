@@ -8,6 +8,22 @@ import DetailModal from "@/pages/detail-modal/DetailModal";
 
 export default function Billboard() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
+    const videoData= {
+        title: "There is a miracle in your mouth",
+        cover: "/images/There_is_ a_miracle.jpg",
+        description: "There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth",
+        duration: "1h 30m",
+        year: "2021",
+        director: "John Doe",
+        cast: "John Doe, Jane Doe",
+        genres: "Drama",
+        tags: "Drama, Faith",
+        episodes: [
+            "video1","video2","video3"
+        ],
+        clarity: ["1080p", "720p", "480p"],
+        subtitle: ["English", "Chinese"]
+    }
 
     return (
         <div className={"relative"}>
@@ -42,7 +58,7 @@ export default function Billboard() {
                     </Button>
                 </div>
             </div>
-            <DetailModal isOpen={isOpen} onOpenChange={onOpenChange}/>
+            <DetailModal isOpen={isOpen} onOpenChange={onOpenChange} videoData={videoData}/>
         </div>
     );
 }
