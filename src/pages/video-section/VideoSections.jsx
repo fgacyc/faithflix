@@ -12,7 +12,7 @@ export  default function VideoSections({sectionName}){
             {
                 names.map((name, index) => {
                     return (
-                        <VideoSectionArea key={index} sectionTitle={name} classNames={"ml-[50px] my-16"} />
+                        <VideoSectionArea key={index} sectionTitle={name} classNames={"my-16 relative"} />
                     )
                 })
             }

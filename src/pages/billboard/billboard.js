@@ -40,7 +40,7 @@ export default function Billboard() {
                 className="object-cover max-h-[100vh] flex justify-center items-center brightness-[0.6]"
             />
             <BillboardCard videoData={videoData} onOpen={onOpen}/>
-            <VideoSectionArea classNames={"absolute bottom-0 left-[50px]"} sectionTitle="Top 10 Videos Today"/>
+            <VideoSectionArea classNames={"absolute bottom-0"} sectionTitle="Top 10 Videos Today"/>
             <DetailModal isOpen={isOpen} onOpenChange={onOpenChange} videoData={videoData}/>
         </div>
     );
