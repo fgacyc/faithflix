@@ -8,7 +8,7 @@ export default function Header({ className }) {
       className={`
       h-[65px]
       bg-gradient-to-b 
-      from-[rgba(100,100,100,0.9)] via-transparent to-transparent]
+      from-[rgba(0,0,0,0.7)] to-transparent]
       text-white
       flex flex-row justify-between	items-center
       px-[55px]
@@ -19,13 +19,13 @@ export default function Header({ className }) {
           <Image
             src="/images/faithflix.png"
             alt="logo"
-            width={95}
+            width={105}
             height={31}
           />
         </div>
         <div>
           <ul
-            className={"flex flex-row justify-between items-center w-[450px]"}
+            className={"flex flex-row justify-between items-center w-[450px] text-sm"}
           >
             <li className="cursor-pointer">Home</li>
             <li className="cursor-pointer">Sermons</li>
