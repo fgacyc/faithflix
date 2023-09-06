@@ -16,11 +16,11 @@ export default function CoverButtonCroup({videoData}){
 
 
     return (
-        <div className={"absolute bottom-[8px] bg-gradient-to-b from-transparent to-[#181818]"}>
-            <div className={"text-white text-[28px] w-4/6 mb-4 px-6"}>
-                {videoData.title}{videoData.title}{videoData.title}
+        <div className={"absolute w-full bottom-0 bg-gradient-to-b from-transparent to-[#181818]"}>
+            <div className={"text-white text-[28px] w-4/6 mb-4 pl-12"}>
+                {videoData.title}
             </div>
-            <div className={"flex flex-row justify-between w-[230px] pl-6"}>
+            <div className={"flex flex-row justify-between w-[260px] pl-12"}>
                 <Button className={"bg-white font-bold rounded "}
                         startContent={<BsFillPlayFill className={"text-4xl"}/>}
                 >

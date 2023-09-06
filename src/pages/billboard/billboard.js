@@ -3,7 +3,6 @@ import Image from "next/image";
 import {Button, useDisclosure} from "@nextui-org/react";
 import {BsFillPlayFill} from "react-icons/bs";
 import {FiInfo} from "react-icons/fi";
-import {GrCircleInformation} from "react-icons/gr";
 import DetailModal from "@/pages/detail-modal/DetailModal";
 
 export default function Billboard() {
@@ -12,12 +11,13 @@ export default function Billboard() {
         title: "There is a miracle in your mouth",
         cover: "/images/There_is_ a_miracle.jpg",
         description: "There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth",
-        duration: "1h 30m",
+        duration: 3600, //seconds
         year: "2021",
         director: "John Doe",
-        cast: "John Doe, Jane Doe",
+        cast: "John Doe, Jane Doe,John Doe, Jane Doe",
         genres: "Drama",
-        tags: "Drama, Faith",
+        tags: "Drama, Faith,Drama, Faith,Drama, Faith",
+        likes_radio: 0.97,
         episodes: [
             "video1","video2","video3"
         ],
