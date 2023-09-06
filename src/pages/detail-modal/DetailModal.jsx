@@ -3,6 +3,7 @@ import {Modal, ModalContent, ModalBody} from "@nextui-org/react";
 import CoverButtonCroup from "@/pages/detail-modal/CoverButtonGroup";
 import VideoDetailsArea from "@/pages/detail-modal/VideoDetailsArea";
 import EpisodesArea from "@/pages/detail-modal/EpisodesArea";
+import SimilarVideoArea from "@/pages/detail-modal/SimilarVideoArea";
 
 
 export default function DetailModal({isOpen, onOpenChange, videoData}) {
@@ -24,6 +25,7 @@ export default function DetailModal({isOpen, onOpenChange, videoData}) {
                             {
                                 videoData.episodes.length > 1 && <EpisodesArea videoData={videoData}/>
                             }
+                            <SimilarVideoArea videoData={videoData}/>
 
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.

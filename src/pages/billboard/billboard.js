@@ -19,7 +19,7 @@ export default function Billboard() {
         tags: "Drama, Faith,Drama, Faith,Drama, Faith",
         likes_radio: 0.97,
         episodes: [
-            "video1","video2","video3"
+            "video1","video2","video3","video4","video5","video6","video7","video8","video9","video10",
         ],
         clarity: ["1080p", "720p", "480p"],
         subtitle: ["English", "Chinese"]
