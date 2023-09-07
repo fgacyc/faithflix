@@ -22,7 +22,7 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
         }
     }
 
-    if (sectionTitle === "Top 10 Sermons Today111") {
+    if (sectionTitle === "Top 10 Sermons Today") {
         for (let i = 0; i < 10; i++) {
             data.push({
                 cover: "/images/img1.jpg",
@@ -30,7 +30,7 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
             })
         }
     }
-    if (sectionTitle === "Top 10 music Today 222") {
+    if (sectionTitle === "Top 10 music Today") {
         for (let i = 0; i < 10; i++) {
             data.push({
                 cover: "/images/img2.jpg",
@@ -58,7 +58,7 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
     useEffect(() => {
         function getWindowWidth() {
             setWindowWidth(window.innerWidth - 66)
-            console.log(windowWidth)
+            //console.log(windowWidth)
         }
 
         getWindowWidth();

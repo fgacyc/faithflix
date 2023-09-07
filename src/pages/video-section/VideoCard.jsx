@@ -1,5 +1,6 @@
 import React from "react";
 import PubSub from 'pubsub-js';
+import Image from "next/image";
 
 
 export default function VideoCard({videoData}){
@@ -29,11 +30,17 @@ export default function VideoCard({videoData}){
     }
 
     return (
-        <img src={videoData.cover} alt="video cover" title={videoData.id}
+        <Image
+            src={videoData.cover}
+            alt="video cover"
+            width={256}
+            height={144}
+            priority={false}
+            title={videoData.id}
              // onMouseEnter={throttledHandleCardMouseEnter}
              //    onMouseLeave={throttledHandleCardMouseLeave}
             onClick={openDetailModal}
              className={"w-64  h-36 inline-block mr-2 object-cover rounded cursor-pointer hover:brightness-[0.6] duration-200"}>
-        </img>
+        </Image>
     )
 }

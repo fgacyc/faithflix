@@ -38,6 +38,7 @@ export default function Billboard() {
                 width={1920}
                 height={1080}
                 quality={100}
+                priority={true}
                 className="object-cover max-h-[100vh] flex justify-center items-center brightness-[0.6]"
             />
             <BillboardCard videoData={videoData} onOpen={onOpen}/>

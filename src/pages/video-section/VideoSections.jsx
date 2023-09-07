@@ -1,5 +1,6 @@
 import VideoSectionArea from "@/pages/video-section/VideoSectionArea";
 import VideoModal from "@/pages/video-section/VideoModal";
+import { Fragment} from "react";
 
 export  default function VideoSections({sectionName}){
     const names = [
@@ -13,10 +14,10 @@ export  default function VideoSections({sectionName}){
             {
                 names.map((name, index) => {
                     return (
-                        <>
-                            <VideoSectionArea key={index} sectionTitle={name} classNames={"my-16 relative"} />
+                        <Fragment key={index}>
+                            <VideoSectionArea   sectionTitle={name} classNames={"my-16 relative"} />
                             {/*<VideoModal />*/}
-                        </>
+                        </Fragment>
                     )
                 })
             }

@@ -64,7 +64,7 @@ export default function Header({className}) {
         >
             <div className={"flex flex-row justify-between items-center"}>
                 <div className={"mr-[50px]"}>
-                    <Image
+                    <img
                         src="/images/faithflix.png"
                         alt="logo"
                         width={105}

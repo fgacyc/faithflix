@@ -7,7 +7,7 @@ import {Divider} from "@nextui-org/react";
 
 export default  function HeaderAvatar({avatarURL}) {
     const [isRotated, setIsRotated] = useState(false);
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
 
     function mouseEnter() {

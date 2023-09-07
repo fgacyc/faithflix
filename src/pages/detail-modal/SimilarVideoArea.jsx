@@ -32,8 +32,14 @@ function SimilarVideoCard({videoID}) {
 
 
     return (
-        <div className={"rounded w-64 h-86 bg-[#2F2F2F] mb-4 mr-[10px] text-sm"}>
-            <img src={videoData.cover} alt="video cover" className={"w-64 h-36 object-cover"}/>
+        <div className={"rounded w-full h-86 bg-[#2F2F2F] text-sm"}>
+            <img
+                width={256}
+                height={144}
+                priority={false}
+                src={videoData.cover}
+                alt="video cover"
+                className={"object-cover"}/>
             <div className={"flex flex-row justify-between items-center p-4 pb-0 "}>
                 <div>
                     <div className={"font-bold"}>{videoData.title}</div>
@@ -80,7 +86,7 @@ export  default  function SimilarVideoArea({videoData}) {
     return (
         <div>
             <h3 className={"text-2xl font-bold mt-12 mb-5"}>More Like This</h3>
-            <div className={"flex flex-row justify-start items-center flex-wrap"}>
+            <div className={"grid grid-cols-3 gap-3 flex-wrap"}>
                 {
                     similarVideos.map((videoID, index) => {
                         return <SimilarVideoCard key={index} videoID={videoID}/>

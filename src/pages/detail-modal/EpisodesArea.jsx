@@ -1,6 +1,7 @@
 import React from "react";
 import {VideoPlayIcon} from "@/graphics/VidepPlayIcon";
 import {BiSolidChevronDown, BiSolidChevronUp} from "react-icons/bi";
+import Image from "next/image";
 
 export default function EpisodesArea({videoData}) {
    // const [playIconVisible, setPlayIconVisible] = React.useState(false);
@@ -38,7 +39,11 @@ export default function EpisodesArea({videoData}) {
                             >
                                 <div className={"text-white w-1 text-2xl"}>{index + 1}</div>
                                 <div className={"relative w-[140px] h-[75px] "}>
-                                    <img src={videoData.cover} alt="video cover"
+                                    <Image
+                                        width={140}
+                                        height={75}
+                                        priority={false}
+                                        src={videoData.cover} alt="video cover"
                                          className={"object-cover mr-4"}
                                     />
                                     {
