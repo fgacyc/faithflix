@@ -1,18 +1,27 @@
 import {Button, Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
 import {BsFillPlayFill} from "react-icons/bs";
 import {IoMdAdd} from "react-icons/io";
-import {HiOutlineThumbUp} from "react-icons/hi";
+import {HiOutlineThumbDown, HiOutlineThumbUp} from "react-icons/hi";
 import React from "react";
 import Link from 'next/link'
+import {IoCheckmark, IoCheckmarkSharp} from "react-icons/io5";
 
 export default function CoverButtonCroup({videoData}){
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isAddOpen, setIsAddOpen] = React.useState(false);
+    const [isLikeOpen, setIsLikeOpen] = React.useState(false);
+    const [tipWord, setTipWord] = React.useState("Add to My list");
+    const [isAdded, setIsAdded] = React.useState(false);
+
     function mouseEnter() {
-        setIsOpen(true);
+        setIsAddOpen(true);
     }
 
     function mouseLeave() {
-        setIsOpen(false);
+        setIsAddOpen(false);
+    }
+
+    function addToList() {
+        setIsAdded(!isAdded);
     }
 
 
@@ -30,23 +39,52 @@ export default function CoverButtonCroup({videoData}){
                     </Link>
 
                 </Button>
-                <Popover isOpen={isOpen} onOpenChange={(open) => setIsOpen(open)}
+                <Popover isOpen={isAddOpen} onOpenChange={(open) => setIsAddOpen(open)}
                     placement="top" showArrow={true} offset={15} className={"rounded bg-[#E6E6E6] py-2"}>
                     <PopoverTrigger
                         onMouseEnter={mouseEnter}
                         onMouseLeave={mouseLeave}
                     >
-                        <Button isIconOnly   variant="bordered" radius="full" className="bg-[rgba(42,42,42,.6)]">
-                            <IoMdAdd color="white" size={"20"} />
+                        <Button isIconOnly   variant="bordered" radius="full" className="bg-[rgba(42,42,42,.6)]"
+                                onClick={addToList}
+                        >
+                            {
+                                isAdded ? <IoCheckmarkSharp color="white" size={"20"} /> : <IoMdAdd color="white" size={"20"} />
+                            }
+                            {/*<IoMdAdd color="white" size={"20"} />*/}
                         </Button>
                     </PopoverTrigger>
                     <PopoverContent>
-                        <div className={"font-bold"}>Add to My list</div>
+                        <div className={"font-bold"}>
+                            {
+                                isAdded ? "Remove from My list" : "Add to My list"
+                            }
+                        </div>
                     </PopoverContent>
                 </Popover>
-                <Button isIconOnly  variant="bordered"  radius="full" className="bg-[rgba(42,42,42,.6)]">
-                    <HiOutlineThumbUp  color="white" size={"20"} />
-                </Button>
+                <Popover
+                    placement="top" showArrow={true} offset={15} className={"bg-[#232323] text-white "}>
+                    <PopoverTrigger>
+                        <Button isIconOnly  variant="bordered"  radius="full" className="bg-[rgba(42,42,42,.6)]"
+                        >
+                            <HiOutlineThumbUp  color="white" size={"20"} />
+                        </Button>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                        <div className="py-1 flex flex-row justify-around w-28	rounded-[50%]">
+                            <div className={"w-7 h-7 hover:bg-[#363636] rounded-full  flex justify-center items-center cursor-pointer"} >
+                                <HiOutlineThumbDown  color="white" size={"18"}  />
+                            </div>
+                            <div className={"w-7 h-7 hover:bg-[#363636] rounded-full  flex justify-center items-center cursor-pointer"} >
+                                <HiOutlineThumbUp  color="white" size={"18"}  />
+                            </div>
+                            <div className={"w-7 h-7 hover:bg-[#363636] rounded-full  flex justify-center items-center cursor-pointer"} >
+                                <HiOutlineThumbUp  color="white" size={"18"}  />
+                            </div>
+                        </div>
+                    </PopoverContent>
+                </Popover>
+
             </div>
             <div className={"h-[60px]"}></div>
         </div>

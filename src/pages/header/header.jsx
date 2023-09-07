@@ -5,6 +5,7 @@ import HeaderAvatar from "./header-avatar";
 import {useEffect, useRef, useState} from "react";
 import {BiSearch} from "react-icons/bi";
 import {IoMdClose} from "react-icons/io";
+import HeaderNotificationIcon from "@/pages/header/header-notificationIcon";
 
 
 export default function Header({className}) {
@@ -120,7 +121,7 @@ export default function Header({className}) {
                     }
                 </div>
                 <div className={`flex flex-row justify-start items-center w-[110px]`}>
-                    <NotificationIcon className="cursor-pointer ml-4"/>
+                    <HeaderNotificationIcon />
                     <HeaderAvatar avatarURL={avatarURL}/>
                 </div>
             </div>
