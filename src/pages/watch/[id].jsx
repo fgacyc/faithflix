@@ -7,6 +7,9 @@ export  default function Watch() {
     const router = useRouter();
     const {id} = router.query;
     console.log(id);
+
+    const lang = "&hl=en"
+
     return (
         <div className={"relative"}>
            <div className={"absolute top-[10px] right-[180px] cursor-pointer flex flex-col justify-center items-center"}>
@@ -18,7 +21,11 @@ export  default function Watch() {
                </Link>
 
            </div>
-            <iframe className={"w-[100vw] h-[100vh]"} src="https://www.youtube.com/embed/f2oxGYpuLkw?si=yxoDB93anjyddPmE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            <iframe className={"w-[100vw] h-[100vh]"}
+                    src={"https://www.youtube.com/embed/f2oxGYpuLkw?si=yxoDB93anjyddPmE" }
+                    title="YouTube video player" frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen></iframe>
         </div>
     );
 }
