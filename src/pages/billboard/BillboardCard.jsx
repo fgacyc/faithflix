@@ -1,6 +1,8 @@
 import {Button, useDisclosure} from "@nextui-org/react";
 import {BsFillPlayFill} from "react-icons/bs";
 import {FiInfo} from "react-icons/fi";
+import Link from "next/link";
+import React from "react";
 
 export  default  function BillboardCard({videoData ,onOpen}){
 
@@ -12,11 +14,14 @@ export  default  function BillboardCard({videoData ,onOpen}){
                 <div className="text-4xl font-bold text-white">{videoData.title}</div>
                 <div className={"text-lg"}>{videoData.description}</div>
                 <div className={"flex justify-center"}>
-                    <Button className={"bg-white font-bold rounded mr-[10px]"}
-                            startContent={<BsFillPlayFill className={"text-4xl"}/>}
-                    >
-                        <span className={"relative top-[2px] font-bold"}>Play</span>
-                    </Button>
+                    <Link href={`/watch/${videoData.id}`}>
+                        <Button className={"bg-white font-bold rounded mr-[10px]"}
+                                startContent={<BsFillPlayFill className={"text-4xl"}/>}
+                        >
+                            <span className={"relative top-[2px] font-bold"}>Play</span>
+                        </Button>
+                    </Link>
+
                     <Button className={"bg-[rgba(109,109,109,0.7)] text-white rounded"}
                             startContent={
                                 <FiInfo className={"text-2xl"}  color="white"/>}

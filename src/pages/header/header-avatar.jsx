@@ -23,7 +23,7 @@ export default  function HeaderAvatar({avatarURL}) {
     return (
         <Popover isOpen={isOpen} onOpenChange={(open) => setIsOpen(open)} placement="bottom" showArrow={true}>
             <PopoverTrigger>
-                <div className="flex flex-row items-center justify-between gap-3 w-[60px]  cursor-pointer"
+                <div className="flex flex-row items-center justify-between gap-3 w-[60px]  cursor-pointer ml-4"
                      onMouseEnter={mouseEnter}
                      onMouseLeave={mouseLeave}
                 >
