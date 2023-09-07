@@ -3,6 +3,7 @@ import {BsFillPlayFill} from "react-icons/bs";
 import {IoMdAdd} from "react-icons/io";
 import {HiOutlineThumbUp} from "react-icons/hi";
 import React from "react";
+import Link from 'next/link'
 
 export default function CoverButtonCroup({videoData}){
     const [isOpen, setIsOpen] = React.useState(false);
@@ -24,7 +25,10 @@ export default function CoverButtonCroup({videoData}){
                 <Button className={"bg-white font-bold rounded "}
                         startContent={<BsFillPlayFill className={"text-4xl"}/>}
                 >
-                    <span className={"relative top-[2px] font-bold"}>Play</span>
+                    <Link href={`/watch/${videoData.id}`}>
+                        <span className={"relative top-[2px] font-bold"}>Play</span>
+                    </Link>
+
                 </Button>
                 <Popover isOpen={isOpen} onOpenChange={(open) => setIsOpen(open)}
                     placement="top" showArrow={true} offset={15} className={"rounded bg-[#E6E6E6] py-2"}>
