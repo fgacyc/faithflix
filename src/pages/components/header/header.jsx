@@ -98,22 +98,22 @@ export default function Header({className,currentTabIndex}) {
                     {
                         tabs.map((tab, index) => {
                             return (
-                                <>
+                                <span key={index}>
                                     {index === currentTab
-                                        ? <Link key={index}
+                                        ? <Link
                                                 className="cursor-pointer font-bold"
                                                 onClick={() => {
                                                     setCurrentTab(index)
                                                 }}
                                                 href={tab.url}>{tab.name}</Link>
-                                        : <Link key={index}
+                                        : <Link
                                                 className="cursor-pointer"
                                                 onClick={() => {
                                                     setCurrentTab(index)
                                                 }}
                                                 href={tab.url}>{tab.name}</Link>
                                     }
-                                </>
+                                </span>
                             )
                         })
                     }
