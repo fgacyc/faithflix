@@ -6,6 +6,7 @@ import {BiSearch} from "react-icons/bi";
 import {IoMdClose} from "react-icons/io";
 import HeaderNotificationIcon from "@/pages/components/header/header-notificationIcon";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 
 export default function Header({className,currentTabIndex}) {
@@ -73,6 +74,11 @@ export default function Header({className,currentTabIndex}) {
         //setRightButtonGroup(155)
     }
 
+    const router = useRouter()
+    function backToHome(){
+        router.push("/")
+    }
+
 
     return (
         <>
@@ -92,6 +98,8 @@ export default function Header({className,currentTabIndex}) {
                         alt="logo"
                         width={105}
                         height={31}
+                        className={"cursor-pointer"}
+                        onClick={backToHome}
                     />
                 </div>
                 <div className={"flex flex-row justify-between items-center w-[400px] text-sm"}>

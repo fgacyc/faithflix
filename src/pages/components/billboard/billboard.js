@@ -59,11 +59,17 @@ export default function Billboard({currentTabIndex}) {
             }
              {/*<VideoSectionArea classNames={ "absolute bottom-0" } sectionTitle="Top 10 Videos Today"/>*/}
 
-            <VideoSectionArea classNames={
-                currentTabIndex ===3 ? "mt-[30px]" : "absolute bottom-0"
-            } sectionTitle="Top 10 Videos Today"/>
 
-            <DetailModal isOpen={isOpen} onOpenChange={onOpenChange} videoData={videoData}/>
+
+            { currentTabIndex !== 4 &&
+               <>
+                   <VideoSectionArea classNames={
+                       currentTabIndex ===3 ? "mt-[30px]" : "absolute bottom-0"
+                   } sectionTitle="Top 10 Videos Today"/>
+                   <DetailModal isOpen={isOpen} onOpenChange={onOpenChange} videoData={videoData}/>
+               </>
+            }
+
         </div>
     );
 }
