@@ -77,11 +77,11 @@ export default function Header({className,currentTabIndex}) {
 
 
     return (
+        <>
         <header
             className={`
       h-[65px]
-      bg-gradient-to-b 
-      from-[rgba(0,0,0,0.7)] to-transparent
+      ${currentTabIndex ===0 ? "bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-transparent" :"bg-black "}
       text-white
       flex flex-row justify-between	items-center
       px-[55px]
@@ -166,5 +166,9 @@ export default function Header({className,currentTabIndex}) {
                 </div>
             </div>
         </header>
+            {currentTabIndex !==0 &&
+                <div className={"h-[65px]"}></div>
+            }
+        </>
     );
 }

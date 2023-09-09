@@ -39,25 +39,33 @@ export default function Billboard({currentTabIndex}) {
         videoData.cover = "/images/day-and-night.jpg"
     }
 
-    console.log(currentTabIndex === (1 || 2))
-
     return (
         <div className={"relative"}>
             <Header className="fixed top-0 w-full py-2 z-10" currentTabIndex={currentTabIndex}/>
             { (currentTabIndex === 1 || currentTabIndex === 2) &&
                 <GenreTitle currentTabIndex={currentTabIndex} />
             }
-            <Image
-                src={videoData.cover}
-                alt="logo"
-                width={1920}
-                height={1080}
-                quality={100}
-                priority={true}
-                className="object-cover max-h-[100vh] flex justify-center items-center brightness-[0.6]"
-            />
-            <BillboardCard videoData={videoData} onOpen={onOpen}/>
-            <VideoSectionArea classNames={"absolute bottom-0"} sectionTitle="Top 10 Videos Today"/>
+            {
+                (currentTabIndex === 0 || currentTabIndex === 1 || currentTabIndex === 2 ) &&
+                <>
+                    <Image
+                        src={videoData.cover}
+                        alt="logo"
+                        width={1920}
+                        height={1080}
+                        quality={100}
+                        priority={true}
+                        className="object-cover max-h-[100vh] flex justify-center items-center brightness-[0.6]"
+                    />
+                    <BillboardCard videoData={videoData} onOpen={onOpen}/>
+                </>
+            }
+             {/*<VideoSectionArea classNames={ "absolute bottom-0" } sectionTitle="Top 10 Videos Today"/>*/}
+
+            <VideoSectionArea classNames={
+                currentTabIndex ===3 ? "mt-[30px]" : "absolute bottom-0"
+            } sectionTitle="Top 10 Videos Today"/>
+
             <DetailModal isOpen={isOpen} onOpenChange={onOpenChange} videoData={videoData}/>
         </div>
     );

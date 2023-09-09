@@ -18,7 +18,7 @@ export default function UISelect({data}) {
                  }}
             >
                 <div>{data[currentSelectedIndex].label}</div>
-                <BiSolidDownArrow className={`${isOpen ? "" : "rotate-180"} scale-75`}  />
+                <BiSolidDownArrow className={`${isOpen ? "rotate-180" : ""} scale-75`}  />
             </div>
             <div className={`absolute w-28 top-[h-6] text-sm
                     bg-black text-white text-[1.4vw] font-bold p-2
