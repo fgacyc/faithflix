@@ -3,7 +3,7 @@ import {InstagramIcon} from "@/graphics/InstagramIcon";
 import {YoutubeIcon} from "@/graphics/YoutubeIcon";
 import {ThreadsIcon} from "@/graphics/ThreadsIcon";
 import React from "react";
-import LanguageSelect from "@/pages/footer/LanguageSelect";
+import LanguageSelect from "@/pages/components/footer/LanguageSelect";
 import Link from "next/link";
 
 

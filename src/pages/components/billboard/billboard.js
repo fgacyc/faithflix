@@ -1,13 +1,16 @@
 import Header from "../header/header";
 import Image from "next/image";
 import {Button, useDisclosure} from "@nextui-org/react";
+import {Select, SelectItem} from "@nextui-org/react";
 import {BsFillPlayFill} from "react-icons/bs";
 import {FiInfo} from "react-icons/fi";
-import DetailModal from "@/pages/detail-modal/DetailModal";
-import VideoSectionArea from "@/pages/video-section/VideoSectionArea";
-import BillboardCard from "@/pages/billboard/BillboardCard";
+import DetailModal from "@/pages/components/detail-modal/DetailModal";
+import VideoSectionArea from "@/pages/components/video-section/VideoSectionArea";
+import BillboardCard from "@/pages/components/billboard/BillboardCard";
+import GenreTitle from "@/pages/components/genre-title/GenreTitle";
 
-export default function Billboard() {
+
+export default function Billboard({currentTabIndex}) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
     const videoData= {
@@ -29,11 +32,23 @@ export default function Billboard() {
         subtitle: ["English", "Chinese"]
     }
 
+    if (currentTabIndex === 1) {
+        videoData.cover = "/images/sermon-cover.jpg"
+    }
+    else  if(currentTabIndex === 2){
+        videoData.cover = "/images/day-and-night.jpg"
+    }
+
+    console.log(currentTabIndex === (1 || 2))
+
     return (
         <div className={"relative"}>
-            <Header className="fixed top-0 w-full py-2 z-10"/>
+            <Header className="fixed top-0 w-full py-2 z-10" currentTabIndex={currentTabIndex}/>
+            { (currentTabIndex === 1 || currentTabIndex === 2) &&
+                <GenreTitle currentTabIndex={currentTabIndex} />
+            }
             <Image
-                src="/images/There_is_ a_miracle.jpg"
+                src={videoData.cover}
                 alt="logo"
                 width={1920}
                 height={1080}
@@ -47,3 +62,5 @@ export default function Billboard() {
         </div>
     );
 }
+
+

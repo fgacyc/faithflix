@@ -5,16 +5,41 @@ import HeaderAvatar from "./header-avatar";
 import {useEffect, useRef, useState} from "react";
 import {BiSearch} from "react-icons/bi";
 import {IoMdClose} from "react-icons/io";
-import HeaderNotificationIcon from "@/pages/header/header-notificationIcon";
+import HeaderNotificationIcon from "@/pages/components/header/header-notificationIcon";
+import Link from "next/link";
 
 
-export default function Header({className}) {
+export default function Header({className,currentTabIndex}) {
     const avatarURL = "/images/Netflix-avatar.png";
     const [searchBarVisible, setSearchBarVisible] = useState(false);
     const [rightButtonGroup, setRightButtonGroup] = useState(155);
     const inputRef = useRef(null);
     const searchBoxRef = useRef(null);
-    const [inputValue, setInputValue] = useState("")
+    const [inputValue, setInputValue] = useState("");
+    const [currentTab, setCurrentTab] = useState(currentTabIndex ||0);
+
+    const tabs = [
+        {
+            name: "Home",
+            url: "/",
+        },
+        {
+            name: "Sermons",
+            url: "/sermons",
+        },
+        {
+            name: "Music",
+            url: "/music",
+        },
+        {
+            name: "New & Popular",
+            url: "/latest",
+        },
+        {
+            name: "My List",
+            url: "/my-list",
+        }
+    ]
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -71,16 +96,29 @@ export default function Header({className}) {
                         height={31}
                     />
                 </div>
-                <div>
-                    <ul
-                        className={"flex flex-row justify-between items-center w-[400px] text-sm"}
-                    >
-                        <li className="cursor-pointer">Home</li>
-                        <li className="cursor-pointer">Sermons</li>
-                        <li className="cursor-pointer">Music</li>
-                        <li className="cursor-pointer">New & Popular</li>
-                        <li className="cursor-pointer">My List</li>
-                    </ul>
+                <div className={"flex flex-row justify-between items-center w-[400px] text-sm"}>
+                    {
+                        tabs.map((tab, index) => {
+                            return (
+                                <>
+                                    {index === currentTab
+                                        ? <Link key={index}
+                                                className="cursor-pointer font-bold"
+                                                onClick={() => {
+                                                    setCurrentTab(index)
+                                                }}
+                                                href={tab.url}>{tab.name}</Link>
+                                        : <Link key={index}
+                                                className="cursor-pointer"
+                                                onClick={() => {
+                                                    setCurrentTab(index)
+                                                }}
+                                                href={tab.url}>{tab.name}</Link>
+                                    }
+                                </>
+                            )
+                        })
+                    }
                 </div>
             </div>
 
@@ -108,7 +146,9 @@ export default function Header({className}) {
                                     {
                                         inputValue.length > 0 &&
                                         <IoMdClose className="text-white cursor-pointer w-[40px]" size={22}
-                                                   onClick={()=>{setInputValue("")}}
+                                                   onClick={() => {
+                                                       setInputValue("")
+                                                   }}
                                         />
                                     }
 
@@ -121,7 +161,7 @@ export default function Header({className}) {
                     }
                 </div>
                 <div className={`flex flex-row justify-start items-center w-[110px]`}>
-                    <HeaderNotificationIcon />
+                    <HeaderNotificationIcon/>
                     <HeaderAvatar avatarURL={avatarURL}/>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
 import {useEffect, useState, useRef} from "react";
-import VideoCard from "@/pages/video-section/VideoCard";
+import VideoCard from "@/pages/components/video-section/VideoCard";
 import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
 import {BiSolidChevronRight} from "react-icons/bi";
 
@@ -22,7 +22,7 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
         }
     }
 
-    if (sectionTitle === "Top 10 Sermons Today") {
+    if (sectionTitle === "Top 10 Sermons Today111") {
         for (let i = 0; i < 10; i++) {
             data.push({
                 cover: "/images/img1.jpg",
@@ -30,7 +30,7 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
             })
         }
     }
-    if (sectionTitle === "Top 10 music Today") {
+    if (sectionTitle === "Top 10 music Today 222") {
         for (let i = 0; i < 10; i++) {
             data.push({
                 cover: "/images/img2.jpg",
