@@ -1,5 +1,4 @@
 import {useState} from "react";
-import {FaSortDown} from "react-icons/fa";
 import {BiSolidDownArrow} from "react-icons/bi";
 
 export default function UISelect({data}) {

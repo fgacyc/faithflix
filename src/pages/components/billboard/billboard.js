@@ -1,9 +1,6 @@
 import Header from "../header/header";
 import Image from "next/image";
-import {Button, useDisclosure} from "@nextui-org/react";
-import {Select, SelectItem} from "@nextui-org/react";
-import {BsFillPlayFill} from "react-icons/bs";
-import {FiInfo} from "react-icons/fi";
+import { useDisclosure} from "@nextui-org/react";
 import DetailModal from "@/pages/components/detail-modal/DetailModal";
 import VideoSectionArea from "@/pages/components/video-section/VideoSectionArea";
 import BillboardCard from "@/pages/components/billboard/BillboardCard";

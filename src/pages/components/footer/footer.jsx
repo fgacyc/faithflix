@@ -13,10 +13,10 @@ export default function Footer(){
         <div className={"p-[50px]  text-sm flex flex-row justify-between"}>
             <div>
                 <div className={"flex flex-row justify-between items-center w-[180px]"}>
-                    <FacebookIcon />
-                    <YoutubeIcon />
-                    <InstagramIcon />
-                    <ThreadsIcon />
+                    <Link  target="_blank" href={"https://www.facebook.com/FGACYC"} className={"cursor-pointer"}><FacebookIcon /></Link>
+                    <Link  target="_blank" href={"https://www.youtube.com/@fgacyc"} className={"cursor-pointer"}><YoutubeIcon /></Link>
+                    <Link  target="_blank" href={"https://www.instagram.com/fgacyc/"} className={"cursor-pointer"}><InstagramIcon /></Link>
+                    <Link  target="_blank" href={"https://www.threads.net/@fgacyc"} className={"cursor-pointer"}><ThreadsIcon /></Link>
                 </div>
                 <div className={"mt-6"}>
                     <LanguageSelect />

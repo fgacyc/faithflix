@@ -40,7 +40,7 @@ export default function VideoCard({videoData}){
              // onMouseEnter={throttledHandleCardMouseEnter}
              //    onMouseLeave={throttledHandleCardMouseLeave}
             onClick={openDetailModal}
-             className={"w-64  h-36 inline-block mr-2 object-cover rounded cursor-pointer hover:brightness-[0.6] duration-200"}>
+             className={"w-64  h-36 inline-block mr-2 object-cover rounded cursor-pointer hover:brightness-[0.6] transition ease-in-out duration-150"}>
         </Image>
     )
 }

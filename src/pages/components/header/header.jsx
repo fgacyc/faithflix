@@ -1,6 +1,5 @@
-import {NotificationIcon} from "@/graphics/NotificationIcon";
+
 import {SearchIcon} from "@/graphics/SearchIcon";
-import Image from "next/image";
 import HeaderAvatar from "./header-avatar";
 import {useEffect, useRef, useState} from "react";
 import {BiSearch} from "react-icons/bi";
@@ -12,7 +11,6 @@ import Link from "next/link";
 export default function Header({className,currentTabIndex}) {
     const avatarURL = "/images/Netflix-avatar.png";
     const [searchBarVisible, setSearchBarVisible] = useState(false);
-    const [rightButtonGroup, setRightButtonGroup] = useState(155);
     const inputRef = useRef(null);
     const searchBoxRef = useRef(null);
     const [inputValue, setInputValue] = useState("");

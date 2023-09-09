@@ -1,5 +1,4 @@
 import Billboard from "@/pages/components/billboard/billboard";
-import VideoSections from "@/pages/components/video-section/VideoSections";
 import Footer from "@/pages/components/footer/footer";
 import Image from "next/image";
 
@@ -31,7 +30,7 @@ export default function MyList() {
                                 height={265}
                                 quality={100}
                                 priority={false}
-                                className="object-cover"
+                                className="object-cover cursor-pointer hover:brightness-[0.6] transition ease-in-out duration-150"
                                 key={num}
                             />
                         )
