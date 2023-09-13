@@ -11,16 +11,16 @@ export default function Education() {
         <div className={"font-martel bg-[#141414]"}>
             <Billboard currentTabIndex={7}/>
             <div className={"mx-[50px]"}>
-                <div>
-                    <h1 className="text-white my-[20px] text-2xl font-bold">My spirit journey</h1>
+                <div className={"mt-10"}>
+                    <h1 className="text-white  text-2xl font-bold">My spirit journey</h1>
                     {
                         nums.map((num,index)=>{
                             return <EducationCard index={index} key={index}/>
                         })
                     }
                 </div>
-                <div>
-                    <h1 className="text-white my-[20px] text-2xl font-bold">Cell Group Tutorial</h1>
+                <div className={"mt-10"}>
+                    <h1 className="text-white   text-2xl font-bold">Cell Group Tutorial</h1>
                     {
                         nums.map((num,index)=>{
                             return <EducationCard index={index} key={index}/>

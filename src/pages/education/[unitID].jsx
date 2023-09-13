@@ -1,6 +1,7 @@
 import Billboard from "@/pages/components/billboard/billboard";
 import {useSearchParams} from 'next/navigation'
 import {Accordion, AccordionItem} from "@nextui-org/react";
+import VideoPlayer from "@/pages/components/education/video-player";
 
 export default function EducationUnit() {
     const searchParams = useSearchParams()
@@ -13,11 +14,11 @@ export default function EducationUnit() {
 
 
     return (
-        <div className={"font-martel bg-[#141414] dark"}>
+        <div className={"font-martel bg-[#141414] dark "}>
             <Billboard currentTabIndex={7}/>
-            <div className={""} style={{height: "calc(100vh - 65px)"}}>
-                <div className={"w-1/4 text-white max-w-xs"}>
-                    <div className={"m-4"}>
+            <div className={"flex flex-row justify-between px-[50px]"} style={{height: "calc(100vh - 65px)"}}>
+                <div className={"w-1/4 text-white max-w-xs mt-6 overflow-x-auto"}>
+                    <div className={"m-4 mb-12"}>
                         <div className={"text-2xl font-bold ml-2"}>Class1 </div>
                         <Accordion selectionMode="multiple" variant="light">
                             <AccordionItem key="1" aria-label="Accordion 1" title="Learn" className={"cursor-pointer"}>
@@ -31,7 +32,7 @@ export default function EducationUnit() {
                             </AccordionItem>
                         </Accordion>
                     </div>
-                    <div className={"m-4"}>
+                    <div className={"m-4 mb-12"}>
                         <div className={"text-2xl font-bold ml-2"}>Class2 </div>
                         <Accordion selectionMode="multiple" variant="light">
                             <AccordionItem key="1" aria-label="Accordion 1" title="Learn" className={"cursor-pointer"}>
@@ -45,7 +46,7 @@ export default function EducationUnit() {
                             </AccordionItem>
                         </Accordion>
                     </div>
-                    <div className={"m-4"}>
+                    <div className={"m-4 mb-12"}>
                         <div className={"text-2xl font-bold ml-2"}>Class3 </div>
                         <Accordion selectionMode="multiple" variant="light">
                             <AccordionItem key="1" aria-label="Accordion 1" title="Learn" className={"cursor-pointer"}>
@@ -60,8 +61,8 @@ export default function EducationUnit() {
                         </Accordion>
                     </div>
                 </div>
-                <div>
-
+                <div className={"border w-3/4 border-gray-800 my-8"}>
+                   <VideoPlayer />
                 </div>
             </div>
         </div>
