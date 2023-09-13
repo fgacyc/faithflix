@@ -15,8 +15,16 @@ export default function Header({className, currentTabIndex}) {
     const [searchBarVisible, setSearchBarVisible] = useState(false);
     const inputRef = useRef(null);
     const searchBoxRef = useRef(null);
+    const router = useRouter()
+    const  path = router.pathname;
+    const [avatarAndLogoOnly, setAvatarAndLogoOnly] = useState(false);
 
+    useEffect(() => {
+        if (path === "/profile" || path === "/history" || path === "/education" || path === "/help" ) {
+            setAvatarAndLogoOnly(true)
+        }
 
+    }, [])
 
 
 
@@ -54,7 +62,6 @@ export default function Header({className, currentTabIndex}) {
         //setRightButtonGroup(155)
     }
 
-    const router = useRouter()
 
     function backToHome() {
         router.push("/")
@@ -83,14 +90,16 @@ export default function Header({className, currentTabIndex}) {
                             onClick={backToHome}
                         />
                     </div>
-                    <HeaderGenre currentTabIndex={currentTabIndex}/>
+                    { avatarAndLogoOnly ? null : <HeaderGenre currentTabIndex={currentTabIndex}/>}
                 </div>
 
                 <div className={"flex flex-row justify-between items-center w-[calc(155px + 270px)]"}>
-                    <HeaderSearch hideSearchBar={hideSearchBar} showSearchBar={showSearchBar} inputRef={inputRef}
-                                  searchBarVisible={searchBarVisible} searchBoxRef={searchBoxRef}/>
+                    { !avatarAndLogoOnly && <HeaderSearch hideSearchBar={hideSearchBar} showSearchBar={showSearchBar} inputRef={inputRef}
+                                                          searchBarVisible={searchBarVisible} searchBoxRef={searchBoxRef}/>
+                    }
+
                     <div className={`flex flex-row justify-start items-center w-[110px]`}>
-                        <HeaderNotificationIcon/>
+                        <HeaderNotificationIcon className={`${avatarAndLogoOnly ? "invisible" : ""}`} />
                         <HeaderAvatar avatarURL={avatarURL}/>
                     </div>
                 </div>

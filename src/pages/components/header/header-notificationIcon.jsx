@@ -18,7 +18,7 @@ return (
 
 }
 
-export  default function HeaderNotificationIcon(){
+export  default function HeaderNotificationIcon({className}) {
     const [visible, setVisible] = useState(false);
     const cardData = [1,2,3,4,5,6,7,8,9,10];
 
@@ -27,7 +27,7 @@ export  default function HeaderNotificationIcon(){
     }
 
     return (
-        <div className={`"flex flex-col gap-2  ml-4 relative" `}
+        <div className={`"flex flex-col gap-2  ml-4 relative" ${className}`}
              onMouseLeave={moveMouseLeaveHandler}
         >
             <NotificationIcon className={"cursor-pointer"}

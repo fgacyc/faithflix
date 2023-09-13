@@ -7,8 +7,8 @@ export default function Education() {
 
     return (
         <div className={"font-martel bg-[#141414]"}>
-            <Billboard currentTabIndex={2}/>
-            <VideoSections/>
+            <Billboard currentTabIndex={7}/>
+
             <Footer/>
         </div>
     );
