@@ -9,7 +9,7 @@ export  default  function Quiz(){
             {/*<FillInBlanks></FillInBlanks>*/}
             {/*<MultipleChoice></MultipleChoice>*/}
             <SingleChoice></SingleChoice>
-            {/*<TrueOrFalse></TrueOrFalse>*/}
+            <TrueOrFalse></TrueOrFalse>
         </div>
     )
 }

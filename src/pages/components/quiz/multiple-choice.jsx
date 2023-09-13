@@ -2,6 +2,8 @@ import {Button, Checkbox} from "@nextui-org/react";
 import React from "react";
 import {BsCheck} from "react-icons/bs";
 import {RxCross2} from "react-icons/rx";
+import CorrectTip from "@/pages/components/quiz/correct-tip";
+import InCorrectTip from "@/pages/components/quiz/incorrect-tip";
 
 export default function MultipleChoice() {
     const [answers, setAnswers] = React.useState([false, false, false, false]);
@@ -68,16 +70,10 @@ export default function MultipleChoice() {
                             </Checkbox>
                             <div className={`text-white ${showAnswer ? "" : "hidden"}`}>
                                 {answers[index] && option.isCorrect === true &&
-                                    <div>Your Answer:
-                                        <span className={"text-[#46d369] ml-1"}>Correct</span>
-                                        <BsCheck className={"inline-block ml-1"} color={"#46d369"} size={"25"}/>
-                                    </div>
+                                    <CorrectTip />
                                 }
                                 {answers[index] && option.isCorrect === false &&
-                                    <div>Your Answer:
-                                        <span className={"text-[#ff8787] ml-1"}>Incorrect</span>
-                                        <RxCross2 className={"inline-block ml-1"} color={"#ff8787"} size={"22"}/>
-                                    </div>
+                                    <InCorrectTip />
                                 }
                             </div>
                         </div>
