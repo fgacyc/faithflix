@@ -11,19 +11,23 @@ export default function MultipleChoice() {
         "options": [
             {
                 "option": "Dog",
-                "isCorrect": true
+                "isCorrect": true,
+                "explanation": "Correct! Dogs are mammals."
             },
             {
                 "option": "Snake",
-                "isCorrect": false
+                "isCorrect": false,
+                "explanation": "Incorrect. Snakes are reptiles, not mammals."
             },
             {
                 "option": "Elephant",
-                "isCorrect": true
+                "isCorrect": true,
+                "explanation": "Correct! Elephants are mammals."
             },
             {
                 "option": "Fish",
-                "isCorrect": false
+                "isCorrect": false,
+                "explanation": "Incorrect. Fish are not mammals."
             }
         ]
     }
@@ -48,30 +52,37 @@ export default function MultipleChoice() {
             <div className={" font-bold text-lg"}>{data.question}</div>
             <div>
                 {data.options.map((option, index) => (
-                    <div key={index} className={`flex flex-row justify-between border mb-3 
-                    ${showAnswer === false && "border-transparent"}
-                    ${showAnswer === true && option.isCorrect === true && "border-green-400"}
-                    ${showAnswer === true && option.isCorrect === false && "border-red-400"}
-                    
+                    <div key={index}
+                         className={`border mb-3 p-3
+                        ${showAnswer === false && "border-transparent"}
+                        ${showAnswer === true && option.isCorrect === true && "border-green-400"}
+                        ${showAnswer === true && option.isCorrect === false && "border-red-400"}
+                        `}
+                    >
+                        <div className={`flex flex-row justify-between
                     `}>
-                        <Checkbox radius="full" color="success" className={"my-0.5"} onValueChange={
-                            (value) => handleChange(index, value)
-                        }>
-                            {String.fromCharCode(65 + index)}. {option.option}
-                        </Checkbox>
-                        <div className={`text-white ${showAnswer ? "" : "hidden"}`}>
-                            {answers[index] && option.isCorrect === true &&
-                                <div>Your Answer:
-                                    <span className={"text-[#46d369] ml-1"}>Correct</span>
-                                    <BsCheck className={"inline-block ml-1"} color={"#46d369"} size={"25"}/>
-                                </div>
-                            }
-                            {answers[index] && option.isCorrect === false &&
-                                <div>Your Answer:
-                                    <span className={"text-[#ff8787] ml-1"}>Incorrect</span>
-                                    <RxCross2 className={"inline-block ml-1"} color={"#ff8787"} size={"22"}/>
-                                </div>
-                            }
+                            <Checkbox radius="full" color="success" className={"my-0.5"} onValueChange={
+                                (value) => handleChange(index, value)
+                            }>
+                                {String.fromCharCode(65 + index)}. {option.option}
+                            </Checkbox>
+                            <div className={`text-white ${showAnswer ? "" : "hidden"}`}>
+                                {answers[index] && option.isCorrect === true &&
+                                    <div>Your Answer:
+                                        <span className={"text-[#46d369] ml-1"}>Correct</span>
+                                        <BsCheck className={"inline-block ml-1"} color={"#46d369"} size={"25"}/>
+                                    </div>
+                                }
+                                {answers[index] && option.isCorrect === false &&
+                                    <div>Your Answer:
+                                        <span className={"text-[#ff8787] ml-1"}>Incorrect</span>
+                                        <RxCross2 className={"inline-block ml-1"} color={"#ff8787"} size={"22"}/>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div>
+                            {showAnswer && <div className={"text-white"}>{option.explanation}</div>}
                         </div>
                     </div>
                 ))}
