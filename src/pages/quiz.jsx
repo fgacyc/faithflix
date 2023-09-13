@@ -7,8 +7,8 @@ export  default  function Quiz(){
     return(
         <div className={"bg-[#141414] h-screen"}>
             {/*<FillInBlanks></FillInBlanks>*/}
-            <MultipleChoice></MultipleChoice>
-            {/*<SingleChoice></SingleChoice>*/}
+            {/*<MultipleChoice></MultipleChoice>*/}
+            <SingleChoice></SingleChoice>
             {/*<TrueOrFalse></TrueOrFalse>*/}
         </div>
     )
