@@ -6,10 +6,10 @@ import TrueOrFalse from "@/pages/components/quiz/true-or-false";
 export  default  function Quiz(){
     return(
         <div className={"bg-[#141414] h-screen"}>
-            {/*<FillInBlanks></FillInBlanks>*/}
+            <FillInBlanks></FillInBlanks>
             {/*<MultipleChoice></MultipleChoice>*/}
-            <SingleChoice></SingleChoice>
-            <TrueOrFalse></TrueOrFalse>
+            {/*<SingleChoice></SingleChoice>*/}
+            {/*<TrueOrFalse></TrueOrFalse>*/}
         </div>
     )
 }
