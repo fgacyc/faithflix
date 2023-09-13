@@ -2,7 +2,7 @@ export  default function VideoPlayer(){
     return(
         <video
             id="my-player"
-            className="video-js w-full h-full"
+            className="video-js w-full h-5/6 border border-gray-800"
             controls
             preload="auto"
             poster="//vjs.zencdn.net/v/oceans.png"
