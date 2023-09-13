@@ -1,4 +1,3 @@
-
 import {SearchIcon} from "@/graphics/SearchIcon";
 import HeaderAvatar from "./header-avatar";
 import {useEffect, useRef, useState} from "react";
@@ -7,38 +6,19 @@ import {IoMdClose} from "react-icons/io";
 import HeaderNotificationIcon from "@/pages/components/header/header-notificationIcon";
 import Link from "next/link";
 import {useRouter} from "next/router";
+import HeaderGenre from "@/pages/components/header/header-genre";
+import HeaderSearch from "@/pages/components/header/header-search";
 
 
-export default function Header({className,currentTabIndex}) {
+export default function Header({className, currentTabIndex}) {
     const avatarURL = "/images/Netflix-avatar.png";
     const [searchBarVisible, setSearchBarVisible] = useState(false);
     const inputRef = useRef(null);
     const searchBoxRef = useRef(null);
-    const [inputValue, setInputValue] = useState("");
-    const [currentTab, setCurrentTab] = useState(currentTabIndex ||0);
 
-    const tabs = [
-        {
-            name: "Home",
-            url: "/",
-        },
-        {
-            name: "Sermons",
-            url: "/sermons",
-        },
-        {
-            name: "Music",
-            url: "/music",
-        },
-        {
-            name: "New & Popular",
-            url: "/latest",
-        },
-        {
-            name: "My List",
-            url: "/my-list",
-        }
-    ]
+
+
+
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -75,104 +55,47 @@ export default function Header({className,currentTabIndex}) {
     }
 
     const router = useRouter()
-    function backToHome(){
+
+    function backToHome() {
         router.push("/")
     }
 
 
     return (
         <>
-        <header
-            className={`
+            <header
+                className={`
       h-[65px]
-      ${currentTabIndex ===0 ? "bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-transparent" :"bg-black "}
+      ${currentTabIndex === 0 ? "bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-transparent" : "bg-black "}
       text-white
       flex flex-row justify-between	items-center
       px-[55px]
       ${className}`}
-        >
-            <div className={"flex flex-row justify-between items-center"}>
-                <div className={"mr-[50px]"}>
-                    <img
-                        src="/images/faithflix.png"
-                        alt="logo"
-                        width={105}
-                        height={31}
-                        className={"cursor-pointer"}
-                        onClick={backToHome}
-                    />
+            >
+                <div className={"flex flex-row justify-between items-center"}>
+                    <div className={"mr-[50px]"}>
+                        <img
+                            src="/images/faithflix.png"
+                            alt="logo"
+                            width={105}
+                            height={31}
+                            className={"cursor-pointer"}
+                            onClick={backToHome}
+                        />
+                    </div>
+                    <HeaderGenre currentTabIndex={currentTabIndex}/>
                 </div>
-                <div className={"flex flex-row justify-between items-center w-[400px] text-sm"}>
-                    {
-                        tabs.map((tab, index) => {
-                            return (
-                                <span key={index}>
-                                    {index === currentTab
-                                        ? <Link
-                                                className="cursor-pointer font-bold"
-                                                onClick={() => {
-                                                    setCurrentTab(index)
-                                                }}
-                                                href={tab.url}>{tab.name}</Link>
-                                        : <Link
-                                                className="cursor-pointer"
-                                                onClick={() => {
-                                                    setCurrentTab(index)
-                                                }}
-                                                href={tab.url}>{tab.name}</Link>
-                                    }
-                                </span>
-                            )
-                        })
-                    }
-                </div>
-            </div>
 
-            <div className={"flex flex-row justify-between items-center w-[calc(155px + 270px)]"}>
-                <div
-                    onClick={showSearchBar}
-                    // onBlur={hideSearchBar}
-                >
-                    {
-                        searchBarVisible
-                            ? <div
-                                className={"bg-[rgba(0,0,0,.6)] border w-[270px] h-8 float-right flex flex-row justify-between items-center"}
-                                ref={searchBoxRef}
-                            >
-                                <BiSearch className="text-white cursor-pointer w-[40px]" size={22}
-                                          onClick={hideSearchBar}
-                                />
-                                <input type="text" className={"bg-transparent text-white w-5/6 h-3/5 outline-0 text-sm"}
-                                       placeholder={"Titles, people, genres"}
-                                       ref={inputRef}
-                                       value={inputValue}
-                                       onChange={(e) => setInputValue(e.target.value)}
-                                />
-                                <div className={"w-[40px]"}>
-                                    {
-                                        inputValue.length > 0 &&
-                                        <IoMdClose className="text-white cursor-pointer w-[40px]" size={22}
-                                                   onClick={() => {
-                                                       setInputValue("")
-                                                   }}
-                                        />
-                                    }
-
-                                </div>
-
-                            </div>
-                            : <div className={"float-right"}>
-                                <SearchIcon className="cursor-pointer"/>
-                            </div>
-                    }
+                <div className={"flex flex-row justify-between items-center w-[calc(155px + 270px)]"}>
+                    <HeaderSearch hideSearchBar={hideSearchBar} showSearchBar={showSearchBar} inputRef={inputRef}
+                                  searchBarVisible={searchBarVisible} searchBoxRef={searchBoxRef}/>
+                    <div className={`flex flex-row justify-start items-center w-[110px]`}>
+                        <HeaderNotificationIcon/>
+                        <HeaderAvatar avatarURL={avatarURL}/>
+                    </div>
                 </div>
-                <div className={`flex flex-row justify-start items-center w-[110px]`}>
-                    <HeaderNotificationIcon/>
-                    <HeaderAvatar avatarURL={avatarURL}/>
-                </div>
-            </div>
-        </header>
-            {currentTabIndex !==0 &&
+            </header>
+            {currentTabIndex !== 0 &&
                 <div className={"h-[65px]"}></div>
             }
         </>

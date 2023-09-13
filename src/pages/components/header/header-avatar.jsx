@@ -4,6 +4,7 @@ import {BsClockHistory, BsQuestionCircle} from "react-icons/bs";
 import {FaRegUser} from "react-icons/fa";
 import {PiStudent} from "react-icons/pi";
 import {Divider} from "@nextui-org/react";
+import {useRouter} from "next/router";
 
 export default  function HeaderAvatar({avatarURL}) {
     const [isRotated, setIsRotated] = useState(false);
@@ -18,6 +19,12 @@ export default  function HeaderAvatar({avatarURL}) {
     function mouseLeave() {
         setIsRotated(false);
         setIsOpen(false);
+    }
+    const router = useRouter();
+    const path = router.pathname;
+    //console.log(path);
+    function goTo(routerPath){
+        router.push(routerPath)
     }
 
     return (
@@ -44,19 +51,27 @@ export default  function HeaderAvatar({avatarURL}) {
                 <div className="p-0 text-xs">
                     <div className="ml-2 mr-[60px] mb-1 mt-3 cursor-pointer">
                         <FaRegUser className={"text-[#B3B3B3] text-2xl inline-block m-1"} />
-                        <span className={"ml-2 hover:underline"}>My Profile</span>
+                        <span className={"ml-2 hover:underline"}
+                                onClick={() => goTo("/profile")}
+                        >My Profile</span>
                     </div>
                     <div  className="ml-2 mb-1  cursor-pointer">
                         <BsClockHistory className={"text-[#B3B3B3] text-2xl inline-block m-1"} />
-                        <span className={"ml-2 hover:underline"}>History</span>
+                        <span className={"ml-2 hover:underline"}
+                                onClick={() => goTo("/history")}
+                        >History</span>
                     </div>
                     <div  className="ml-2 mb-1  cursor-pointer">
                         <PiStudent className={"text-[#B3B3B3] text-2xl inline-block m-1"} />
-                        <span className={"ml-2 hover:underline"}>Education</span>
+                        <span className={"ml-2 hover:underline"}
+                                onClick={() => goTo("/education")}
+                        >Education</span>
                     </div>
                     <div  className="ml-2 mb-1  cursor-pointer">
                         <BsQuestionCircle className={"text-[#B3B3B3] text-2xl inline-block m-1"} />
-                        <span className={"ml-2 hover:underline"}>Help Center</span>
+                        <span className={"ml-2 hover:underline"}
+                                onClick={() => goTo("/help")}
+                        >Help Center</span>
                     </div>
                     <Divider className="bg-gray-600 mt-3" />
                     <div className={"p-3 flex justify-center items-center"}>
