@@ -1,6 +1,4 @@
 import  {useRouter} from "next/router";
-import {AiOutlineArrowLeft} from "react-icons/ai";
-import Link from 'next/link'
 import YouTube from 'react-youtube';
 import {useEffect, useState} from "react";
 
@@ -30,13 +28,13 @@ export  default function Watch() {
         return () => window.removeEventListener('resize', resizeHandler);
     }, []);
 
-    const lang = "&hl=en"
+    //const lang = "&hl=en"
 
     function onPlayHandler(event) {
         console.log(event.target.getCurrentTime())
     }
 
-    function onReadyHandler(event) {
+    function onReadyHandler() {
         console.log("ready")
         //console.log(event.target.getCurrentTime())
     }

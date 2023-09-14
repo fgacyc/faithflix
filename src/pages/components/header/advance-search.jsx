@@ -1,9 +1,6 @@
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button} from "@nextui-org/react";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "@nextui-org/react";
 import {BiSearch} from "react-icons/bi";
-import {GrCircleQuestion} from "react-icons/gr";
-import {FaRegCircleQuestion} from "react-icons/fa6";
 import {PiTestTubeFill} from "react-icons/pi";
-import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/react";
 
 
 
@@ -11,7 +8,7 @@ export default  function AdvanceSearch({isOpen,onOpenChange}){
     return (
         <Modal isOpen={isOpen} onOpenChange={onOpenChange} className={"dark text-white"} size="3xl" radius={"sm"}  >
             <ModalContent>
-                {(onClose) => (
+                {() => (
                     <>
                         <ModalHeader className="flex flex-col gap-1">
                             <div>

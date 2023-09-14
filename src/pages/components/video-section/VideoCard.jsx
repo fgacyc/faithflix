@@ -4,17 +4,17 @@ import Image from "next/image";
 
 
 export default function VideoCard({videoData}){
-    function throttle(fn, delay) {
-        let timer;
-        return function (...args) {
-            if (!timer) {
-                timer = setTimeout(() => {
-                    fn.apply(this, args);
-                    timer = null;
-                }, delay);
-            }
-        };
-    }
+    // function throttle(fn, delay) {
+    //     let timer;
+    //     return function (...args) {
+    //         if (!timer) {
+    //             timer = setTimeout(() => {
+    //                 fn.apply(this, args);
+    //                 timer = null;
+    //             }, delay);
+    //         }
+    //     };
+    // }
 
 // 创建节流版的处理函数
 //     const throttledHandleCardMouseEnter = throttle((e) => {
