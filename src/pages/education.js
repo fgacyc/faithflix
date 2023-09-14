@@ -20,7 +20,7 @@ export default function Education() {
                     }
                 </div>
                 <div className={"mt-10"}>
-                    <h1 className="text-white   text-2xl font-bold">Cell Group Tutorial</h1>
+                    <h1 className="text-white   text-2xl font-bold">Connect Group Training</h1>
                     {
                         nums.map((num,index)=>{
                             return <EducationCard index={index} key={index}/>
