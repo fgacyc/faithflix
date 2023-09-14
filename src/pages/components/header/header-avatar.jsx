@@ -7,11 +7,15 @@ import {Divider} from "@nextui-org/react";
 import {useRouter} from "next/router";
 import Link from "next/link";
 import {useUser} from "@auth0/nextjs-auth0/client";
+import {useUserStore} from "@/status/user-info-store";
 
 export default function HeaderAvatar({avatarURL}) {
     const [isRotated, setIsRotated] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
+    const [picture, setPicture] = useUserStore((state) => [state.picture, state.setPicture]);
+    const setName = useUserStore((state) => state.setName);
+    const setLanguage = useUserStore((state) => state.setLanguage);
 
     function mouseEnter() {
         setIsRotated(true);
@@ -37,8 +41,12 @@ export default function HeaderAvatar({avatarURL}) {
     useEffect(() => {
         if (user) {
             setIsLogged(true)
+            setPicture(user.picture)
+            setName(user.name)
+            setLanguage(user.locale.split("-")[0])
+            //console.log(user)
         }
-    }, [user]);
+    }, []);
 
     return (
         <Popover isOpen={isOpen} onOpenChange={(open) => setIsOpen(open)} placement="bottom" showArrow={true}>
@@ -48,9 +56,11 @@ export default function HeaderAvatar({avatarURL}) {
                      onMouseLeave={mouseLeave}
                 >
                     <img
-                        src={avatarURL}
+                        src={picture}
                         className="w-[32px] rounded"
-                        alt={"avatar"}></img>
+                        alt={"avatar"}
+                        referrerPolicy="no-referrer"
+                    ></img>
                     <span
                         className={`border-x-5 border-t-5 border-x-transparent border-t-white border-solid
                   h-0 w-0 m-0 transition transform duration-300 ease-in-out ${isRotated && "rotate-180"}`}

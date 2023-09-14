@@ -2,6 +2,9 @@ import {useEffect, useRef, useState} from "react";
 import {BiSolidDownArrow} from "react-icons/bi";
 
 export default function Select({data,value,setValue}) {
+    console.log("current",value)
+
+
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef(null);
 
