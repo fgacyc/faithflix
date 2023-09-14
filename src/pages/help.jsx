@@ -12,14 +12,14 @@ export default function Help() {
             <div className={"bg-black pt-6 flex flex-col items-center"}>
                 <h1 className={"text-3xl font-bold font-sans text-white text-center "}>Help Center</h1>
                 <div className={"flex flex-row items-center bg-white my-6 h-11 rounded w-4/6"}>
-                    <BiSearch className="text-black cursor-pointer mx-3" size={26}
+                    <BiSearch className="text-black mx-3" size={26}
                     />
                     <input className={"outline-none"} placeholder="What do you need help with?"
                            style={{width: "calc(100% - 40px)"}}/>
                 </div>
-                <div className={"bg-[#fafafa] w-full text-black px-[50px] py-4 border-b-1 border-gray-300"}>
+                <div className={"bg-[#fafafa] w-full text-black px-[50px] py-6 border-b-1 border-gray-300"}>
                     <div className={"text-2xl font-bold  "}>Hi, Jolene</div>
-                    <div className={"text-sm my-2"}>Recommended for you</div>
+                    <div className={"text-sm my-3"}>Recommended for you</div>
                     <div className={"flex flex-row "}>
                         <HelpCard title={"How to watch"} link={"/help/how-to-watch"}/>
                         <HelpCard title={"How to watch"} link={"/help/how-to-watch"}/>
@@ -27,21 +27,21 @@ export default function Help() {
                     </div>
                 </div>
                 <div className={"bg-white w-full text-[#4c4948] px-[50px] py-4 flex flex-row justify-between"}>
-                    <div className={"my-4"}>
+                    <div className={"my-4 h-[400px]"}>
                         <div className={"text-2xl font-bold mb-4"}>Popular topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
                     </div>
-                    <div className={"my-4"}>
+                    <div className={"my-4 h-[400px]"}>
                         <div className={"text-2xl font-bold mb-4"}>Popular topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
                     </div>
-                    <div className={"my-4"}>
+                    <div className={"my-4 h-[400px]"}>
                         <div className={"text-2xl font-bold mb-4"}>Popular topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
                         <div className={"cursor-pointer hover:underline"}>Browse help topics</div>
