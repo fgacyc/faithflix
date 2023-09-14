@@ -4,7 +4,7 @@ import {IoMdAdd} from "react-icons/io";
 import {HiOutlineThumbDown, HiOutlineThumbUp} from "react-icons/hi";
 import React from "react";
 import Link from 'next/link'
-import {IoCheckmark, IoCheckmarkSharp} from "react-icons/io5";
+import {IoCheckmarkSharp} from "react-icons/io5";
 
 export default function CoverButtonCroup({videoData}){
     const [isAddOpen, setIsAddOpen] = React.useState(false);

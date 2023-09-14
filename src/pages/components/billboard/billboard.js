@@ -11,7 +11,7 @@ export default function Billboard({currentTabIndex}) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
     const videoData = {
-        id: 1,
+        id: "RqGiyrtNPak",
         title: "There is a miracle in your mouth",
         cover: "/images/There_is_ a_miracle.jpg",
         description: "There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth",

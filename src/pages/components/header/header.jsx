@@ -1,10 +1,7 @@
-import {SearchIcon} from "@/graphics/SearchIcon";
+
 import HeaderAvatar from "./header-avatar";
 import {useEffect, useRef, useState} from "react";
-import {BiSearch} from "react-icons/bi";
-import {IoMdClose} from "react-icons/io";
 import HeaderNotificationIcon from "@/pages/components/header/header-notificationIcon";
-import Link from "next/link";
 import {useRouter} from "next/router";
 import HeaderGenre from "@/pages/components/header/header-genre";
 import HeaderSearch from "@/pages/components/header/header-search";

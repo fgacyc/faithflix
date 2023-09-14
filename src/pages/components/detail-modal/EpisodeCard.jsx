@@ -3,7 +3,7 @@ import {VideoPlayIcon} from "@/graphics/VidepPlayIcon";
 
 export default  function  EpisodeCard({currentEpisode,setCurrentEpisode,index,episode} ) {
     const videoData= {
-        id: 1,
+        id: "RqGiyrtNPak",
         title: "There is a miracle in your mouth",
         cover: "/images/There_is_ a_miracle.jpg",
         description: "There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth",

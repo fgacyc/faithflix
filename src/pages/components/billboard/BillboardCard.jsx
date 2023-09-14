@@ -1,4 +1,4 @@
-import {Button, useDisclosure} from "@nextui-org/react";
+import {Button} from "@nextui-org/react";
 import {BsFillPlayFill} from "react-icons/bs";
 import {FiInfo} from "react-icons/fi";
 import Link from "next/link";

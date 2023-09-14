@@ -17,13 +17,13 @@ export default function VideoCard({videoData}){
     }
 
 // 创建节流版的处理函数
-    const throttledHandleCardMouseEnter = throttle((e) => {
-        PubSub.publish('videoModalVisible', { message: true });
-    }, 1000); // 1000毫秒的延迟
-
-    const throttledHandleCardMouseLeave = throttle((e) => {
-        //PubSub.publish('videoModalVisible', { message: false });
-    }, 1000); // 1000毫秒的延迟
+//     const throttledHandleCardMouseEnter = throttle((e) => {
+//         PubSub.publish('videoModalVisible', { message: true });
+//     }, 1000); // 1000毫秒的延迟
+//
+//     const throttledHandleCardMouseLeave = throttle((e) => {
+//         //PubSub.publish('videoModalVisible', { message: false });
+//     }, 1000); // 1000毫秒的延迟
 
     function  openDetailModal(){
         PubSub.publish('detailModalVisible', { message: true });

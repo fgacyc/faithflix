@@ -1,5 +1,4 @@
 import VideoSectionArea from "@/pages/components/video-section/VideoSectionArea";
-import VideoModal from "@/pages/components/video-section/VideoModal";
 import { Fragment} from "react";
 
 export  default function VideoSections({sectionName}){

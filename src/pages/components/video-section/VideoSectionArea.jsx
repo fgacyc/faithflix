@@ -1,7 +1,6 @@
 import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
 import {useEffect, useState, useRef} from "react";
 import VideoCard from "@/pages/components/video-section/VideoCard";
-import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
 import {BiSolidChevronRight} from "react-icons/bi";
 
 
@@ -52,8 +51,8 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
     const [leftArrowVisible, setLeftArrowVisible] = useState(false)
     const areaRef = useRef(null);
     const [currentViewPortElementIndex, setCurrentViewPortElementIndex] = useState(0)
-    const [isOpen, setIsOpen] = useState(false);
-    const [blueRightArrowVisible, setBlueRightArrowVisible] = useState(true);
+    //const [isOpen, setIsOpen] = useState(false);
+    //const [blueRightArrowVisible, setBlueRightArrowVisible] = useState(true);
 
     useEffect(() => {
         function getWindowWidth() {

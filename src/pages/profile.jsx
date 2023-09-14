@@ -1,6 +1,6 @@
 import Billboard from "@/pages/components/billboard/billboard";
 import Select from "@/pages/components/Select/Select";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {Button, Switch} from "@nextui-org/react";
 import {EditIcon} from "@/graphics/EditIcon";
 import React from "react";

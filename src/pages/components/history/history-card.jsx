@@ -1,5 +1,4 @@
 import Image from "next/image";
-import {VideoPlayIcon} from "@/graphics/VidepPlayIcon";
 
 export default function HistoryCard({index}){
     const videoData= {
