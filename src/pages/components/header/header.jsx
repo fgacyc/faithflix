@@ -72,14 +72,14 @@ export default function Header({className, currentTabIndex}) {
         <>
             <header
                 className={`
-      h-[65px]
-      ${currentTabIndex === 0 ? "bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-transparent" : "bg-black "}
-      text-white
-      flex flex-row justify-between	items-center
-      lg:px-[50px] md:px-[30px] sm:px-[15px] px-[15px]
-      ${className}`}
+                          h-[65px]
+                          ${currentTabIndex === 0 ? "bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-transparent" : "bg-black "}
+                          text-white
+                          flex flex-row justify-between	items-center
+                          lg:px-[50px] md:px-[30px] sm:px-[15px] px-[15px]
+                          ${className}`}
             >
-                <div className={"flex flex-row justify-between items-center"}>
+                <div className={"flex flex-row justify-between items-center dark"}>
                     <div className={"mr-[50px]"}>
                         <img
                             src="/images/faithflix.png"

@@ -1,5 +1,8 @@
 import Link from "next/link";
 import {useState} from "react";
+import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
+import {AiOutlineCaretDown} from "react-icons/ai";
+
 
 export default function HeaderGenre({currentTabIndex}){
     const tabs = [
@@ -55,6 +58,30 @@ export default function HeaderGenre({currentTabIndex}){
                     })
                 }
             </div>
+            <Popover placement="bottom" showArrow={true} className={"md:hidden sm:block block"}>
+                <PopoverTrigger>
+                    <div className={"flex flex-row cursor-pointer"}>
+                        <div className={"mr-2"}>Browse</div>
+                        <AiOutlineCaretDown/>
+                    </div>
+                </PopoverTrigger>
+                <PopoverContent className="bg-[rgba(0,0,0,.9)] text-white rounded">
+                    <div className="px-1 py-2">
+                        {
+                            tabs.map((tab, index) => {
+                                return (
+                                    <div key={index} className={"p-4 w-[160px]"}>
+                                        <Link
+                                            className="cursor-pointer text-center hover:font-bold inline-block w-full"
+                                            href={tab.url}>{tab.name}
+                                        </Link>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </PopoverContent>
+            </Popover>
         </>
     )
 }
