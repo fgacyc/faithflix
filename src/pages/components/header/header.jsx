@@ -76,7 +76,7 @@ export default function Header({className, currentTabIndex}) {
       ${currentTabIndex === 0 ? "bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-transparent" : "bg-black "}
       text-white
       flex flex-row justify-between	items-center
-      px-[55px]
+      lg:px-[50px] md:px-[30px] sm:px-[15px] px-[15px]
       ${className}`}
             >
                 <div className={"flex flex-row justify-between items-center"}>
@@ -86,7 +86,7 @@ export default function Header({className, currentTabIndex}) {
                             alt="logo"
                             width={105}
                             height={31}
-                            className={"cursor-pointer"}
+                            className={"cursor-pointer lg:w-[105px]  w-[90px]"}
                             onClick={backToHome}
                         />
                     </div>

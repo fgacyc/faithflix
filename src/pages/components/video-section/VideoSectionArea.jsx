@@ -108,7 +108,9 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
 
     return (
         <div className={`${classNames}`}>
-            <div className={"text-white font-bold text-[1.4vw] mb-2 ml-[50px] flex items-center  overflow-hidden relative"}
+            <div className={`text-white font-bold text-[1.4vw] mb-2 
+                lg:ml-[50px] md:ml-[30px] sm:ml-[15px] ml-[15px]
+                 flex items-center  overflow-hidden relative`}
                 // onMouseEnter={() => setBlueRightArrowVisible(true)}
                 // onMouseLeave={() => setBlueRightArrowVisible(false)}
             >
@@ -125,7 +127,9 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
                 {/*<BiSolidChevronRight color={"#48B9C5"} size={20} className={`inline-block ${blueRightArrowVisible ? "inline-block":"hidden"}` } />*/}
             </div>
             <div className={"overflow-x-auto w-full flex flex-nowrap flex-row no-scrollbar relative"} ref={areaRef}>
-                <div className={"ml-[50px] h-full"}></div>
+                <div className={`h-full
+                    lg:ml-[50px] md:ml-[30px] sm:ml-[15px] ml-[15px]
+                `}></div>
                 {/*no-scrollbar*/}
                 {
                     data.map((item, index) => {
@@ -137,7 +141,8 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
                     })
                 }
             </div>
-            <div className={`absolute h-36 w-[50px]  z-10 flex bottom-0 left-0 scroll-smooth
+            <div className={`absolute  w-[50px]  z-10 flex bottom-0 left-0 scroll-smooth
+            2xl:h-36  xl:h-36 lg:h-32 sm:h-30  md:h-28 h-28
                 ${rightArrowVisible ? 'bg-[hsla(0,0%,8%,.5)]' : 'bg-transparent'}
                 justify-center items-center cursor-pointer`}
                  style={{left: windowWidth}}
@@ -150,7 +155,10 @@ export default function VideoSectionArea({classNames, sectionTitle}) {
                 }
 
             </div>
-            <div className={`absolute h-36 w-[50px]  z-10 flex bottom-0 left-0 scroll-smooth
+            <div className={`absolute
+                lg:w-[50px] md:w-[30px] sm:w-[15px] w-[15px]
+                2xl:h-36  xl:h-36 lg:h-32 sm:h-30  md:h-28 h-28
+                z-10 flex bottom-0 left-0 scroll-smooth
                 ${leftArrowVisible ? 'bg-[hsla(0,0%,8%,.5)]' : 'bg-transparent'}
                 justify-center items-center cursor-pointer`}
                  style={{left: 0}}

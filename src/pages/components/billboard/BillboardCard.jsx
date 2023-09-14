@@ -13,7 +13,8 @@ export  default  function BillboardCard({videoData ,onOpen}){
             2xl:bottom-[300px]  xl:bottom-[250px] lg:bottom-[200px] md:bottom-[180px] sm:bottom-[180px] bottom-[180px]
             2xl:w-[40%] xl:w-[40%] lg:w-[50%] md:w-[60%] sm:w-[70%] w-[70%]
             2xl:h-[250px] xl:h-[250px] lg:h-[200px] md:h-[180px] sm:h-[180px] h-[180px]
-            text-white flex flex-col ml-[50px]
+            text-white flex flex-col
+            lg:ml-[50px] md:ml-[30px] sm:ml-[15px] ml-[15px]
             md:justify-between sm:justify-end justify-end
             items-start `}>
                 <div className={`2xl:text-4xl xl:text-4xl lg:text-3xl md:text-3xl sm:text-3xl text-3xl md:flex sm:hidden hidden

@@ -10,7 +10,9 @@ export default function History() {
     return (
         <div className={"font-martel bg-[#141414]"}>
             <Billboard currentTabIndex={5}/>
-            <div className={"px-10 py-6"}>
+            <div className={`
+                lg:px-10 md:px-5 px-2
+            py-6`}>
                 {
                     nums.map((num,index)=>{
                         return <HistoryCard  index={index} key={index}/>

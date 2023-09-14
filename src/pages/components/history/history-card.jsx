@@ -23,7 +23,8 @@ export default function HistoryCard({index}){
 
 
     return (
-        <div key={index} className={`flex justify-between items-center p-8  
+        <div key={index} className={`flex justify-between items-center 
+                        lg:p-8 md:p-4 sm:p-4 p-2  
                          border-b border-[#303030] rounded `}
         >
             <div className={"text-white w-14 text-2xl"}>{index + 1}</div>
@@ -37,7 +38,7 @@ export default function HistoryCard({index}){
                 />
             </div>
 
-            <div className={"flex flex-col items-start h-[78px] w-9/12 text-white"}>
+            <div className={"flex flex-col items-start h-[78px] w-9/12 text-white ml-2"}>
                 <div className={"flex flex-row justify-between w-full"}>
                     <div className={"font-bold cursor-pointer hover:text-gray-300"}>{videoData.title}</div>
                     <div>{videoData.duration / 60}m</div>

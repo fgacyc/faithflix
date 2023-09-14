@@ -28,11 +28,14 @@ export default function HeaderGenre({currentTabIndex}){
 
 
     return (
-        <div className={"flex flex-row justify-between items-center w-[400px] text-sm"}>
-            {
-                tabs.map((tab, index) => {
-                    return (
-                        <span key={index}>
+        <>
+            <div className={`flex-row justify-between items-center w-[400px] text-sm
+                md:flex sm:hidden hidden
+            `}>
+                {
+                    tabs.map((tab, index) => {
+                        return (
+                            <span key={index}>
                                     {index === currentTab
                                         ? <Link
                                             className="cursor-pointer font-bold"
@@ -48,9 +51,10 @@ export default function HeaderGenre({currentTabIndex}){
                                             href={tab.url}>{tab.name}</Link>
                                     }
                                 </span>
-                    )
-                })
-            }
-        </div>
+                        )
+                    })
+                }
+            </div>
+        </>
     )
 }
