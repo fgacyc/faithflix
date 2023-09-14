@@ -1,18 +1,21 @@
 import Billboard from "@/pages/components/billboard/billboard";
 import Select from "@/pages/components/Select/Select";
 import {useEffect, useState} from "react";
-import {Button, Switch, useDisclosure} from "@nextui-org/react";
+import {Button, Switch} from "@nextui-org/react";
 import {EditIcon} from "@/graphics/EditIcon";
 import React from "react";
+import {useRouter} from "next/router";
 
 export default function Profile() {
     const [value, setValue] = useState("en");
-    const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const uploaderRef = React.useRef(null);
     const  data = [
         {label: "English", value: "en"},
         {label: "Chinese", value: "ch"},
     ]
+
+    const router = useRouter()
+
 
     useEffect(() => {
         if(uploaderRef.current){
@@ -57,7 +60,9 @@ export default function Profile() {
                         <Button color="default" radius="none">
                             Save
                         </Button>
-                        <Button color="default" radius="none"  variant="faded">
+                        <Button color="default" radius="none"  variant="faded"
+                                onClick={() => router.back()}
+                        >
                             Cancel
                         </Button>
                     </div>

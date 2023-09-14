@@ -17,9 +17,6 @@ export default function EducationUnit() {
     const type = searchParams.get('type')
     console.log(unitID, classID, type)
 
-    const defaultContent =
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-
     const router = useRouter();
     function goTo(routerPath){
         router.push(routerPath)
