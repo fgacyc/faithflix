@@ -3,7 +3,6 @@
 // import SingleChoice from "@/pages/components/quiz/single-choice";
 // import TrueOrFalse from "@/pages/components/quiz/true-or-false";
 import ReactMarkdown from 'react-markdown'
-import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
 

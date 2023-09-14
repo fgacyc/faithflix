@@ -1,5 +1,4 @@
 import Image from "next/image";
-import {VideoPlayIcon} from "@/graphics/VidepPlayIcon";
 import {BsFillPlayFill} from "react-icons/bs";
 import {Button} from "@nextui-org/react";
 import {useRouter} from "next/router";
@@ -57,7 +56,6 @@ export default function EducationCard({index}){
                 <div>this is desc this is desc this is desc this is desc this is desc this is desc
                 </div>
             </div>
-
         </div>
     );
 }

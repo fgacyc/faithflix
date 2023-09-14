@@ -1,7 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {useRouter} from "next/router";
 import {BiSolidDownArrow} from "react-icons/bi";
-import Link from "next/link";
 
 export default function Select({data,value,setValue}) {
     const [isOpen, setIsOpen] = useState(false);

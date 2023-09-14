@@ -1,6 +1,4 @@
 import {Button, Checkbox} from "@nextui-org/react";
-import {BsCheck} from "react-icons/bs";
-import {RxCross2} from "react-icons/rx";
 import React from "react";
 import CorrectTip from "@/pages/components/quiz/correct-tip";
 import InCorrectTip from "@/pages/components/quiz/incorrect-tip";

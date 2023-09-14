@@ -1,4 +1,4 @@
-import {Button, Checkbox} from "@nextui-org/react";
+import {Button} from "@nextui-org/react";
 import CorrectTip from "@/pages/components/quiz/correct-tip";
 import InCorrectTip from "@/pages/components/quiz/incorrect-tip";
 import React from "react";

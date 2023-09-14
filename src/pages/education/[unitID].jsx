@@ -2,9 +2,8 @@ import Billboard from "@/pages/components/billboard/billboard";
 import {useSearchParams} from 'next/navigation'
 import {Accordion, AccordionItem, Button} from "@nextui-org/react";
 import VideoPlayer from "@/pages/components/education/video-player";
-import {IoCheckmarkSharp} from "react-icons/io5";
-import {BsCheckCircle, BsCircle, BsFillCheckCircleFill} from "react-icons/bs";
-import {FiChevronLeft, FiChevronRight, FiInfo} from "react-icons/fi";
+import { BsCircle, BsFillCheckCircleFill} from "react-icons/bs";
+import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
 import React from "react";
 import Quizzes from "@/pages/components/education/quizzes";
 import {useRouter} from "next/router";

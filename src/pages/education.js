@@ -1,5 +1,4 @@
 import Billboard from "@/pages/components/billboard/billboard";
-import VideoSections from "@/pages/components/video-section/VideoSections";
 import Footer from "@/pages/components/footer/footer";
 import EducationCard from "@/pages/components/education/education-card";
 
