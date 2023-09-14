@@ -6,16 +6,24 @@ import {IoCheckmarkSharp} from "react-icons/io5";
 import {BsCheckCircle, BsCircle, BsFillCheckCircleFill} from "react-icons/bs";
 import {FiChevronLeft, FiChevronRight, FiInfo} from "react-icons/fi";
 import React from "react";
+import Quizzes from "@/pages/components/education/quizzes";
+import {useRouter} from "next/router";
 
 export default function EducationUnit() {
     const searchParams = useSearchParams()
 
     const unitID = searchParams.get('unitID')
-    console.log(unitID)
+    const classID = searchParams.get('classID')
+    const type = searchParams.get('type')
+    console.log(unitID, classID, type)
 
     const defaultContent =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
+    const router = useRouter();
+    function goTo(routerPath){
+        router.push(routerPath)
+    }
 
     return (
         <div className={"font-martel bg-[#141414] dark "}>
@@ -26,13 +34,19 @@ export default function EducationUnit() {
                         <div className={"text-2xl font-bold ml-2"}>Class1 </div>
                         <Accordion selectionMode="multiple" variant="light">
                             <AccordionItem key="1" aria-label="Accordion 1" title="Learn" className={"cursor-pointer"}>
-                                <BsFillCheckCircleFill color="#46d369" className="inline-block relative bottom-0.5 mr-1" /> Video: this is video title
+                                <BsFillCheckCircleFill color="#46d369" className="inline-block relative bottom-0.5 mr-1"/>
+                                <span onClick={() => goTo(`/education/msj1?class=1&type=video`)}
+                                >Video: this is video title</span>
                             </AccordionItem>
                             <AccordionItem key="2" aria-label="Accordion 2" title="Quiz"  className={"cursor-pointer"}>
-                                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1" />  Quiz: this is quiz title
+                                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1"/>
+                                <span  onClick={() => goTo(`/education/msj1?class=1&type=quiz`)}
+                                >Quiz: this is quiz title</span>
                             </AccordionItem>
                             <AccordionItem key="3" aria-label="Accordion 3" title="Review"  className={"cursor-pointer"}>
-                                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1" />  Review: this is review title
+                                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1"/>
+                                <span  onClick={() => goTo(`/education/msj1?class=1&type=review`)}
+                                > Review: this is review title</span>
                             </AccordionItem>
                         </Accordion>
                     </div>
@@ -65,8 +79,14 @@ export default function EducationUnit() {
                         </Accordion>
                     </div>
                 </div>
-                <div className={"my-8 relative"}>
-                   <VideoPlayer />
+                <div className={"my-8 relative w-3/4"}>
+                    {
+                        type === "video" &&  <VideoPlayer />
+                    }
+                    {
+                        type === "quiz" && <Quizzes />
+                    }
+
                     <div className={"absolute bottom-0 w-full flex flex-row justify-between"}>
                         <Button className={"bg-[rgba(109,109,109,0.3)] text-white rounded"}
                                 startContent={

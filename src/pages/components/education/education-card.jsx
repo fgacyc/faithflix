@@ -48,7 +48,7 @@ export default function EducationCard({index}){
                         <Button className={"bg-white font-bold rounded mr-[10px] cursor-pointer"}
                                 startContent={<BsFillPlayFill className={"text-4xl"}/>}
                                 isDisabled={index !== 0}
-                                onClick={() => goTo(`/education/msj${index+1}`)}
+                                onClick={() => goTo(`/education/msj${index+1}?class=1&type=video`)}
                         >
                             <span className={"relative top-[2px] font-bold"}>Start</span>
                         </Button>
