@@ -52,7 +52,7 @@ export default function Billboard({currentTabIndex}) {
                         height={1080}
                         quality={100}
                         priority={true}
-                        className="object-cover max-h-[100vh] flex justify-center items-center brightness-[0.6]"
+                        className="object-cover max-h-[100vh] flex justify-center items-center brightness-[0.7]"
                     />
                     <BillboardCard videoData={videoData} onOpen={onOpen}/>
                 </>
@@ -61,7 +61,7 @@ export default function Billboard({currentTabIndex}) {
 
 
 
-            { currentTabIndex !== 4 &&
+            { (currentTabIndex === 0 ||currentTabIndex === 1||currentTabIndex === 2||currentTabIndex === 3) &&
                <>
                    <VideoSectionArea classNames={
                        currentTabIndex ===3 ? "mt-[30px]" : "absolute bottom-0"

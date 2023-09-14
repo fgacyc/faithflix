@@ -11,7 +11,7 @@ export default function Help() {
             <Billboard currentTabIndex={8}/>
             <div className={"bg-black pt-6 flex flex-col items-center"}>
                 <h1 className={"text-3xl font-bold font-sans text-white text-center "}>Help Center</h1>
-                <div className={"flex flex-row items-center bg-white my-6 h-11 rounded w-4/6"}>
+                <div className={"flex flex-row items-center bg-white my-8 h-11 rounded w-4/6"}>
                     <BiSearch className="text-black mx-3" size={26}
                     />
                     <input className={"outline-none"} placeholder="What do you need help with?"

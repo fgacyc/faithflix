@@ -1,12 +1,14 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
 import {BsClockHistory, BsQuestionCircle} from "react-icons/bs";
 import {FaRegUser} from "react-icons/fa";
 import {PiStudent} from "react-icons/pi";
 import {Divider} from "@nextui-org/react";
 import {useRouter} from "next/router";
+import Link from "next/link";
+import {useUser} from "@auth0/nextjs-auth0/client";
 
-export default  function HeaderAvatar({avatarURL}) {
+export default function HeaderAvatar({avatarURL}) {
     const [isRotated, setIsRotated] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
@@ -20,12 +22,23 @@ export default  function HeaderAvatar({avatarURL}) {
         setIsRotated(false);
         setIsOpen(false);
     }
+
     const router = useRouter();
     const path = router.pathname;
+
     //console.log(path);
-    function goTo(routerPath){
+    function goTo(routerPath) {
         router.push(routerPath)
     }
+
+    const {user} = useUser()
+    // console.log(user)
+
+    useEffect(() => {
+        if (user) {
+            setIsLogged(true)
+        }
+    }, [user]);
 
     return (
         <Popover isOpen={isOpen} onOpenChange={(open) => setIsOpen(open)} placement="bottom" showArrow={true}>
@@ -45,39 +58,43 @@ export default  function HeaderAvatar({avatarURL}) {
                 </div>
             </PopoverTrigger>
             <PopoverContent className={"rounded bg-[#080605] text-white p-0"}
-                onMouseEnter={mouseEnter}
-                onMouseLeave={mouseLeave}
+                            onMouseEnter={mouseEnter}
+                            onMouseLeave={mouseLeave}
             >
                 <div className="p-0 text-xs">
                     <div className="ml-2 mr-[60px] mb-1 mt-3 cursor-pointer">
-                        <FaRegUser className={"text-[#B3B3B3] text-2xl inline-block m-1"} />
+                        <FaRegUser className={"text-[#B3B3B3] text-2xl inline-block m-1"}/>
                         <span className={"ml-2 hover:underline"}
-                                onClick={() => goTo("/profile")}
+                              onClick={() => goTo("/profile")}
                         >My Profile</span>
                     </div>
-                    <div  className="ml-2 mb-1  cursor-pointer">
-                        <BsClockHistory className={"text-[#B3B3B3] text-2xl inline-block m-1"} />
+                    <div className="ml-2 mb-1  cursor-pointer">
+                        <BsClockHistory className={"text-[#B3B3B3] text-2xl inline-block m-1"}/>
                         <span className={"ml-2 hover:underline"}
-                                onClick={() => goTo("/history")}
+                              onClick={() => goTo("/history")}
                         >History</span>
                     </div>
-                    <div  className="ml-2 mb-1  cursor-pointer">
-                        <PiStudent className={"text-[#B3B3B3] text-2xl inline-block m-1"} />
+                    <div className="ml-2 mb-1  cursor-pointer">
+                        <PiStudent className={"text-[#B3B3B3] text-2xl inline-block m-1"}/>
                         <span className={"ml-2 hover:underline"}
-                                onClick={() => goTo("/education")}
+                              onClick={() => goTo("/education")}
                         >Education</span>
                     </div>
-                    <div  className="ml-2 mb-1  cursor-pointer">
-                        <BsQuestionCircle className={"text-[#B3B3B3] text-2xl inline-block m-1"} />
+                    <div className="ml-2 mb-1  cursor-pointer">
+                        <BsQuestionCircle className={"text-[#B3B3B3] text-2xl inline-block m-1"}/>
                         <span className={"ml-2 hover:underline"}
-                                onClick={() => goTo("/help")}
+                              onClick={() => goTo("/help")}
                         >Help Center</span>
                     </div>
-                    <Divider className="bg-gray-600 mt-3" />
+                    <Divider className="bg-gray-600 mt-3"/>
                     <div className={"p-3 flex justify-center items-center"}>
-                        <span className={" cursor-pointer hover:underline"}>{
-                            isLogged ? "Sign Out" : "Sign In"
-                        }</span>
+                        {isLogged ? <Link href={"/api/auth/logout"} className={" cursor-pointer hover:underline"}>
+                            Sign Out
+
+                        </Link> : <Link href={"/api/auth/login"} className={" cursor-pointer hover:underline"}>
+                            Sign In
+                        </Link>
+                        }
                     </div>
                 </div>
             </PopoverContent>
