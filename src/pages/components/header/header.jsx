@@ -100,7 +100,7 @@ export default function Header({className, currentTabIndex}) {
 
                     <div className={`flex flex-row justify-start items-center w-[110px]`}>
                         <HeaderNotificationIcon className={`${avatarAndLogoOnly ? "invisible" : ""}`} />
-                        <HeaderAvatar avatarURL={avatarURL}/>
+                        <HeaderAvatar />
                     </div>
                 </div>
             </header>

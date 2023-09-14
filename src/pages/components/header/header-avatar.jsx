@@ -9,7 +9,7 @@ import Link from "next/link";
 import {useUser} from "@auth0/nextjs-auth0/client";
 import {useUserStore} from "@/status/user-info-store";
 
-export default function HeaderAvatar({avatarURL}) {
+export default function HeaderAvatar() {
     const [isRotated, setIsRotated] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
@@ -28,7 +28,7 @@ export default function HeaderAvatar({avatarURL}) {
     }
 
     const router = useRouter();
-    const path = router.pathname;
+    // const path = router.pathname;
 
     //console.log(path);
     function goTo(routerPath) {

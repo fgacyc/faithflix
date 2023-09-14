@@ -8,7 +8,6 @@ import {useRouter} from "next/router";
 import {useUserStore} from "@/status/user-info-store";
 
 export default function Profile() {
-    const [value, setValue] = useState("en");
     const uploaderRef = React.useRef(null);
     const [picture, setPicture] = useUserStore((state) => [state.picture, state.setPicture]);
     const [name, setName] = useUserStore((state) => [state.name, state.setName]);
@@ -62,7 +61,7 @@ export default function Profile() {
                             <input type="text"  value={name} onChange={(e) => setName(e.target.value)}
                                    className={"w-full h-9 outline-none bg-[#666666] p-2 text-lg "} />
                             <div className={"text-[#cccccc] text-lg mt-7"}>Language: </div>
-                            <Select data={data} value={language} setValue={setValue} />
+                            <Select data={data} value={language} setValue={setLanguage} />
                             <div>
                                 <div className={"text-[#cccccc] text-lg mt-7"}>Receive notification: </div>
                                 <Switch defaultSelected color="default">Receive</Switch>
