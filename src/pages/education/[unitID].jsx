@@ -8,6 +8,7 @@ import {FiChevronLeft, FiChevronRight, FiInfo} from "react-icons/fi";
 import React from "react";
 import Quizzes from "@/pages/components/education/quizzes";
 import {useRouter} from "next/router";
+import MdViewer from "@/pages/components/education/md-viewer";
 
 export default function EducationUnit() {
     const searchParams = useSearchParams()
@@ -85,6 +86,9 @@ export default function EducationUnit() {
                     }
                     {
                         type === "quiz" && <Quizzes />
+                    }
+                    {
+                        type === "review" && <MdViewer />
                     }
 
                     <div className={"absolute bottom-0 w-full flex flex-row justify-between"}>

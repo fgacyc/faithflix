@@ -1,14 +1,9 @@
-// import FillInBlanks from "@/pages/components/quiz/fill-in-blanks";
-// import MultipleChoice from "@/pages/components/quiz/multiple-choice";
-// import SingleChoice from "@/pages/components/quiz/single-choice";
-// import TrueOrFalse from "@/pages/components/quiz/true-or-false";
 import ReactMarkdown from 'react-markdown'
-import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
 
-export  default  function Quiz(){
-    const fileContents = `# this is review title
+export  default  function MdViewer(){
+    const fileContents = `# This is review title
 We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
 
 ### You can use Static Generation for many types of pages, including:
