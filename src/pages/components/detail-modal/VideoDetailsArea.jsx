@@ -2,8 +2,8 @@ import React from "react";
 
 export default function VideoDetailsArea({videoData}) {
     return (
-        <div className={"flex flex-row justify-between items-start "}>
-            <div className={"w-7/12"}>
+        <div className={"flex flex-row justify-between items-start flex-wrap"}>
+            <div className={"w-7/12 min-w-[320px] mb-4"}>
                 <div className={"w-[270px] flex flex-row justify-between items-center"}>
                                         <span className={"text-[#46d369] font-bold"}>
                                         {videoData.likes_radio * 100}% Like
@@ -23,7 +23,7 @@ export default function VideoDetailsArea({videoData}) {
                     {videoData.description}
                 </div>
             </div>
-            <div className={"w-4/12"}>
+            <div className={"w-4/12 min-w-[210px]"}>
                 <div className={" pb-3"}>
                     <span className={"text-[#777]"}>Cast: </span>
                     <span>{videoData.cast.join(', ')}</span>

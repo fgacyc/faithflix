@@ -1,6 +1,7 @@
 import {IoMdAdd} from "react-icons/io";
 import {Button, Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
 import React from "react";
+import Image from "next/image";
 
 function SimilarVideoCard({videoID}) {
     const videoData= {
@@ -33,13 +34,14 @@ function SimilarVideoCard({videoID}) {
 
     return (
         <div className={"rounded w-full h-86 bg-[#2F2F2F] text-sm"}>
-            <img
+            <Image
                 width={256}
                 height={144}
                 priority={false}
                 src={videoData.cover}
+                quality={100}
                 alt="video cover"
-                className={"object-cover"}/>
+                className={"object-cover w-full"}/>
             <div className={"flex flex-row justify-between items-center p-4 pb-0 "}>
                 <div>
                     <div className={"font-bold"}>{videoData.title}</div>
@@ -86,7 +88,7 @@ export  default  function SimilarVideoArea({videoData}) {
     return (
         <div>
             <h3 className={"text-2xl font-bold mt-12 mb-5"}>More Like This</h3>
-            <div className={"grid grid-cols-3 gap-3 flex-wrap"}>
+            <div className={"grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 flex-wrap"}>
                 {
                     similarVideos.map((videoID, index) => {
                         return <SimilarVideoCard key={index} videoID={videoID}/>

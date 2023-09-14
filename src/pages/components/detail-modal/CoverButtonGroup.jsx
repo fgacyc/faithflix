@@ -27,7 +27,9 @@ export default function CoverButtonCroup({videoData}){
 
     return (
         <div className={"absolute w-full bottom-0 bg-gradient-to-b from-transparent to-[#181818]"}>
-            <div className={"text-white text-[28px] w-4/6 mb-4 pl-12"}>
+            <div className={`text-white 
+                sm:text-[28px] text-[20px]
+             w-4/6 mb-4 pl-12`}>
                 {videoData.title}
             </div>
             <div className={"flex flex-row justify-between w-[260px] pl-12"}>

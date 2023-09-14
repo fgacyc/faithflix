@@ -61,7 +61,7 @@ export default function Billboard({currentTabIndex}) {
 
             {(currentTabIndex === 0 || currentTabIndex === 1 || currentTabIndex === 2 || currentTabIndex === 3) &&
                 <>
-                    <VideoSectionArea classNames={currentTabIndex === 3 ? "mt-[30px]" : "absolute bottom-0"}
+                    <VideoSectionArea classNames={`${currentTabIndex === 3 ? "mt-[30px]" : "absolute bottom-0" } sm:block hidden`}
                                       sectionTitle="Top 10 Videos Today"/>
                     <DetailModal isOpen={isOpen} onOpenChange={onOpenChange} videoData={videoData}/>
                 </>

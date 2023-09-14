@@ -36,7 +36,7 @@ export default function DetailModal({isOpen, onOpenChange, videoData}) {
                         <div className={"relative"}>
                             <CoverButtonCroup videoData={videoData}/>
                         </div>
-                        <div className={"px-12"}>
+                        <div className={"md:px-12 sm:px-6 px-4"}>
                             <VideoDetailsArea videoData={videoData}/>
                             {
                                 videoData.episodes.length > 1 && <EpisodesArea videoData={videoData}/>

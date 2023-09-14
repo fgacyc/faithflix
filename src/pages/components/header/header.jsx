@@ -80,7 +80,7 @@ export default function Header({className, currentTabIndex}) {
                           ${className}`}
             >
                 <div className={"flex flex-row justify-between items-center dark"}>
-                    <div className={"mr-[50px]"}>
+                    <div className={"lg:mr-[50px] md:mr-[30px] sm:mr-[10px] mr-[10px]"}>
                         <img
                             src="/images/faithflix.png"
                             alt="logo"

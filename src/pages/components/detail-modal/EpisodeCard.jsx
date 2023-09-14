@@ -31,13 +31,15 @@ export default  function  EpisodeCard({currentEpisode,setCurrentEpisode,index,ep
 
 
     return (
-        <div key={index} className={`flex justify-between items-center p-8  
+        <div key={index} className={`flex justify-between items-center 
+                        sm:p-8 p-3 
                         cursor-pointer border-b border-[#303030] rounded ${index === 0 && 'bg-[#333333]'}`}
              onMouseEnter={() => mouseEnter(index)}
              onMouseLeave={() => mouseLeave(index)}
         >
             <div className={"text-white w-1 text-2xl"}>{index + 1}</div>
-            <div className={"relative w-[140px] h-[75px] "}>
+            <div className={`relative w-[140px] flex justify-center items-center
+                     sm:h-[75px] h-[120px] `}>
                 <Image
                     width={140}
                     height={75}

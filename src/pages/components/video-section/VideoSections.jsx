@@ -15,7 +15,9 @@ export  default function VideoSections({sectionName}){
                 names.map((name, index) => {
                     return (
                         <Fragment key={index}>
-                            <VideoSectionArea   sectionTitle={name} classNames={"my-16 relative"} />
+                            <VideoSectionArea   sectionTitle={name} classNames={`relative
+                                lg:my-16  md:my-8 sm:my-8 my-4
+                            `} />
                             {/*<VideoModal />*/}
                         </Fragment>
                     )
