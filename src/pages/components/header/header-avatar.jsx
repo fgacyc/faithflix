@@ -8,7 +8,7 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import {useUser} from "@auth0/nextjs-auth0/client";
 import {useUserStore} from "@/status/user-info-store";
-import {getUserinfo} from "@/pages/components/header/userinfo-api";
+import {getUserinfo, updateLoginTime} from "@/pages/components/header/userinfo-api";
 
 export default function HeaderAvatar() {
     const [isRotated, setIsRotated] = useState(false);
@@ -43,7 +43,6 @@ export default function HeaderAvatar() {
     useEffect(() => {
         if(!isLoading && user && !oauth2_id){
             // console.log(user)
-
             getUserinfo(user.sub).then((res) => {
                 setIsLogged(true)
                 if(res.status){
@@ -58,6 +57,7 @@ export default function HeaderAvatar() {
                     setLanguage(user.locale.split("-")[0])
                     setOauth2_id(user.sub)
                 }
+                updateLoginTime(user.sub);
             })
         }
     }, [isLoading]);
