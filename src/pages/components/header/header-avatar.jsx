@@ -8,6 +8,7 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import {useUser} from "@auth0/nextjs-auth0/client";
 import {useUserStore} from "@/status/user-info-store";
+import {getUserinfo} from "@/pages/components/header/userinfo-api";
 
 export default function HeaderAvatar() {
     const [isRotated, setIsRotated] = useState(false);
@@ -16,6 +17,7 @@ export default function HeaderAvatar() {
     const [picture, setPicture] = useUserStore((state) => [state.picture, state.setPicture]);
     const setName = useUserStore((state) => state.setName);
     const setLanguage = useUserStore((state) => state.setLanguage);
+    const [oauth2_id,setOauth2_id]  = useUserStore((state) => [state.oauth2_id, state.setOauth2_id]);
 
     function mouseEnter() {
         setIsRotated(true);
@@ -39,12 +41,24 @@ export default function HeaderAvatar() {
     // console.log(user)
 
     useEffect(() => {
-        if(!isLoading && user){
-            setIsLogged(true)
-            setPicture(user.picture)
-            setName(user.name)
-            setLanguage(user.locale.split("-")[0])
-            //console.log(user)
+        if(!isLoading && user && !oauth2_id){
+            // console.log(user)
+
+            getUserinfo(user.sub).then((res) => {
+                setIsLogged(true)
+                if(res.status){
+                    // console.log(res.data)
+                    setPicture(res.data.avatar_url)
+                    setName(res.data.username)
+                    setLanguage(res.data.language)
+                    setOauth2_id(res.data.oauth2_id)
+                }else{
+                    setPicture(user.picture)
+                    setName(user.name)
+                    setLanguage(user.locale.split("-")[0])
+                    setOauth2_id(user.sub)
+                }
+            })
         }
     }, [isLoading]);
 

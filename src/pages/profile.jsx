@@ -6,12 +6,14 @@ import {EditIcon} from "@/graphics/EditIcon";
 import React from "react";
 import {useRouter} from "next/router";
 import {useUserStore} from "@/status/user-info-store";
+import {upsertUserInfo, getUserinfo} from "@/pages/components/header/userinfo-api";
 
 export default function Profile() {
     const uploaderRef = React.useRef(null);
     const [picture, setPicture] = useUserStore((state) => [state.picture, state.setPicture]);
     const [name, setName] = useUserStore((state) => [state.name, state.setName]);
     const [language, setLanguage] = useUserStore((state) => [state.language, state.setLanguage]);
+    const oauth2_id = useUserStore((state) => state.oauth2_id);
 
     const  data = [
         {label: "English", value: "en"},
@@ -37,6 +39,20 @@ export default function Profile() {
 
     function showUploader(){
         uploaderRef.current.click();
+    }
+
+    function  handleSave(){
+
+        // upsertUserInfo(
+        //     {
+        //         oauth2_id: oauth2_id,
+        //         name: name,
+        //         picture: picture,
+        //         language: language
+        //     }
+        // ).then((res) => {
+        //     console.log(res);
+        // })
     }
 
     return (
@@ -69,7 +85,7 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className={"mt-6 w-[200px] flex flex-row justify-between"}>
-                        <Button color="default" radius="none">
+                        <Button color="default" radius="none" onClick={handleSave}>
                             Save
                         </Button>
                         <Button color="default" radius="none"  variant="faded"

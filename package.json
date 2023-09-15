@@ -26,6 +26,8 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@types/node": "20.6.0",
+    "typescript": "5.2.2",
     "video.js": "^8.5.2"
   }
 }
