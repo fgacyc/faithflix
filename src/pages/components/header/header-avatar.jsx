@@ -35,18 +35,20 @@ export default function HeaderAvatar() {
         router.push(routerPath)
     }
 
-    const {user} = useUser()
+    const { user, error, isLoading } = useUser();
     // console.log(user)
 
     useEffect(() => {
-        if (user) {
+        if(!isLoading && user){
             setIsLogged(true)
             setPicture(user.picture)
             setName(user.name)
             setLanguage(user.locale.split("-")[0])
             //console.log(user)
         }
-    }, []);
+    }, [isLoading]);
+
+
 
     return (
         <Popover isOpen={isOpen} onOpenChange={(open) => setIsOpen(open)} placement="bottom" showArrow={true}>
