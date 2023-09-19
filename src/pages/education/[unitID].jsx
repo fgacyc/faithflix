@@ -15,7 +15,7 @@ export default function EducationUnit() {
     const unitID = searchParams.get('unitID')
     const classID = searchParams.get('classID')
     const type = searchParams.get('type')
-    console.log(unitID, classID, type)
+    // console.log(unitID, classID, type)
 
     const router = useRouter();
     function goTo(routerPath){

@@ -15,7 +15,7 @@ export default function HeaderGenre({currentTabIndex}){
             url: "/sermons",
         },
         {
-            name: "Music",
+            name: "Worship",
             url: "/music",
         },
         {

@@ -1,19 +1,23 @@
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "@nextui-org/react";
 import {BiSearch} from "react-icons/bi";
 import {PiTestTubeFill} from "react-icons/pi";
+import {GrCircleQuestion} from "react-icons/gr";
+import {BsQuestionCircle} from "react-icons/bs";
 
 
 
 export default  function AdvanceSearch({isOpen,onOpenChange}){
     return (
-        <Modal isOpen={isOpen} onOpenChange={onOpenChange} className={"dark text-white"} size="3xl" radius={"sm"}  >
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange} className={"dark text-white"}
+               size="3xl" radius={"sm"} backdrop={"blur"}  >
             <ModalContent>
                 {() => (
                     <>
                         <ModalHeader className="flex flex-col gap-1">
                             <div>
                                 <span>Advanced AI Search </span>
-                                <PiTestTubeFill className={"inline-block text-[#fab005] cursor-pointer"} />
+                                {/*<PiTestTubeFill className={"inline-block text-[#fab005] cursor-pointer"} />*/}
+                                <BsQuestionCircle className={"inline-block text-white cursor-pointer ml-2"} />
                             </div>
                         </ModalHeader>
                         <ModalBody>
