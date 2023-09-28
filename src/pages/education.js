@@ -49,7 +49,7 @@ export async function getStaticProps() {
             'Authorization' : `Bearer ${process.env.NEXT_PUBLIC_CMS_API_KEY}`
         }
     }
-    const data = await fetch(`https://cms.fgacyc.com/api/courses?populate=*`,options)
+    const data = await fetch(`${process.env.NEXT_PUBLIC_CMS_HOST_URL}/api/courses?populate=*`,options)
     const res = await data.json()
     const courses = res.data;
 

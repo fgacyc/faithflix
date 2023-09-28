@@ -5,8 +5,9 @@ import {useRouter} from "next/router";
 
 export default function EducationCard({course}){
     const router = useRouter();
-    function goTo(routerPath){
-        router.push(routerPath)
+    function goToCourse(){
+        const url  =`/education/course=${course.id}?class=1&type=video`;
+        router.push(url)
     }
 
 
@@ -18,7 +19,7 @@ export default function EducationCard({course}){
                 width={200}
                 height={200}
                 priority={false}
-                src={`https://cms.fgacyc.com${course.attributes.cover.data.attributes.url}`} alt="video cover"
+                src={`${process.env.NEXT_PUBLIC_CMS_HOST_URL}${course.attributes.cover.data.attributes.url}`} alt="video cover"
                 className={"object-cover mr-4 cursor-pointer"}
             />
 
@@ -28,8 +29,8 @@ export default function EducationCard({course}){
                     <div>
                         <Button className={"bg-white font-bold rounded mr-[10px] cursor-pointer"}
                                 startContent={<BsFillPlayFill className={"text-4xl"}/>}
-                                isDisabled={course.id !== 0}
-                                onClick={() => goTo(`/education/msj${course.attributes.index+1}?class=1&type=video`)}
+                                // isDisabled={course.id !== 0}
+                                onClick={() => goToCourse()}
                         >
                             <span className={"relative top-[2px] font-bold"}>Start</span>
                         </Button>
