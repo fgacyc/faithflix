@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import CorrectTip from "@/pages/components/quiz/correct-tip";
 import InCorrectTip from "@/pages/components/quiz/incorrect-tip";
 
-export default function TrueOrFalse({data}) {
+export default function TrueOrFalse({index,data,currentQuizIndex, setCurrentQuizIndex}) {
     const [answers, setAnswers] = React.useState([false, false]);
     const [showAnswer, setShowAnswer] = React.useState(false);
     const [dataFormat, setDataFormat] = React.useState(null);
@@ -45,7 +45,7 @@ export default function TrueOrFalse({data}) {
 
     return (
         <>
-            { dataFormat &&
+            { dataFormat && index === currentQuizIndex &&
                 <div className={"text-white dark"}>
                     <div className={" font-bold text-lg"}>{dataFormat.question}</div>
                     <div className={`flex flex-row justify-around h-[70px]
@@ -99,7 +99,7 @@ export default function TrueOrFalse({data}) {
                                     <span className={"relative top-[2px] font-bold"}>Check Answer</span>
                                 </Button>
                                 :  <Button className={"bg-[rgba(109,109,109,0.3)] text-white rounded"}
-                                           onClick={() => console.log("next question")}
+                                           onClick={() => setCurrentQuizIndex(currentQuizIndex+1)}
                                 >
                                     <span className={"relative top-[2px] font-bold"}>Next</span>
                                 </Button>

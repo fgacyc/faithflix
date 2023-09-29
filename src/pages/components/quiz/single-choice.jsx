@@ -2,8 +2,9 @@ import {Button, Checkbox} from "@nextui-org/react";
 import React, {useEffect} from "react";
 import InCorrectTip from "@/pages/components/quiz/incorrect-tip";
 import CorrectTip from "@/pages/components/quiz/correct-tip";
+import {shuffleArray} from "@/pages/components/quiz/tools";
 
-export default function SingleChoice({data}) {
+export default function SingleChoice({index,data,currentQuizIndex, setCurrentQuizIndex}) {
     const [answers, setAnswers] = React.useState([false, false, false, false]);
     const [showAnswer, setShowAnswer] = React.useState(false);
     const [dataFormat, setDataFormat] = React.useState(null);
@@ -51,14 +52,7 @@ export default function SingleChoice({data}) {
         console.log(answers)
     }
 
-    function shuffleArray(array) {
-        const shuffled = array.slice(); // 创建副本以避免更改原始数组
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // 交换元素
-        }
-        return shuffled;
-    }
+
 
     function checkAnswer(){
         // if answers all false, return
@@ -69,7 +63,7 @@ export default function SingleChoice({data}) {
     return (
         <>
             {
-                dataFormat &&
+                dataFormat &&index === currentQuizIndex &&
                 <div className={"text-white dark"}>
                     <div className={" font-bold text-lg"}>{dataFormat.question}</div>
                     <div>
@@ -113,7 +107,7 @@ export default function SingleChoice({data}) {
                                     <span className={"relative top-[2px] font-bold"}>Check Answer</span>
                                 </Button>
                                 :  <Button className={"bg-[rgba(109,109,109,0.3)] text-white rounded"}
-                                           onClick={() => console.log("next question")}
+                                           onClick={() => setCurrentQuizIndex(currentQuizIndex+1)}
                                 >
                                     <span className={"relative top-[2px] font-bold"}>Next</span>
                                 </Button>

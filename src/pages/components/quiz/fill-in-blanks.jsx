@@ -3,7 +3,7 @@ import CorrectTip from "@/pages/components/quiz/correct-tip";
 import InCorrectTip from "@/pages/components/quiz/incorrect-tip";
 import React, {useEffect} from "react";
 
-export  default  function FillInBlanks({data}){
+export  default  function FillInBlanks({index,data,currentQuizIndex, setCurrentQuizIndex}){
     const [showAnswer, setShowAnswer] = React.useState(false);
     const [answers, setAnswers] = React.useState(null);
     const [dataFormat, setDataFormat] = React.useState(null);
@@ -11,7 +11,7 @@ export  default  function FillInBlanks({data}){
     useEffect(() => {
         let dataFormat = formatData(data)
         setDataFormat(dataFormat)
-        console.log("dataFormat",dataFormat)
+        // console.log("dataFormat",dataFormat)
     }, []);
 
     function formatData(data){
@@ -50,18 +50,25 @@ export  default  function FillInBlanks({data}){
     }
 
     function  handleClick(){
-        setShowAnswer(!showAnswer);
         let values =[];
         let DOMs = document.getElementsByClassName("fill-black-inputs");
+        let completed = true;
         for(let i=0;i<dataFormat.length;i++){
-            values.push(DOMs[i].value);
+            let val = DOMs[i].value;
+            if(val === "") {
+                completed = false;
+                break;
+            }
+            values.push(val);
         }
+        if(!completed) return;
         setAnswers(values);
+        setShowAnswer(!showAnswer);
     }
     return (
         <>
             {
-                dataFormat &&
+                dataFormat && index === currentQuizIndex &&
                 <div>
                     <div className={"text-white text-lg dark"}>
                         {
@@ -97,7 +104,7 @@ export  default  function FillInBlanks({data}){
                                     <span className={"relative top-[2px] font-bold"}>Next</span>
                                 </Button>
                                 :  <Button className={"bg-[rgba(109,109,109,0.3)] text-white rounded"}
-                                           onClick={() => console.log("next question")}
+                                           onClick={() => setCurrentQuizIndex(currentQuizIndex+1)}
                                 >
                                     <span className={"relative top-[2px] font-bold"}>Next</span>
                                 </Button>
