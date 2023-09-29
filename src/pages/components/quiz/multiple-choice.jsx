@@ -49,6 +49,19 @@ export default function MultipleChoice({index,data,currentQuizIndex, setCurrentQ
         // if answers all false, return
         if(answers.every((answer) => answer === false)) return;
         setShowAnswer(!showAnswer)
+        setAnswersRecord(
+            (prev) => ({...prev, [`single_choice-${data.id}`]:true})
+        )
+
+        for (let i=0;i<dataFormat.options.length;i++){
+            if(answers[i] !== dataFormat.options[i].isCorrect ){
+                setAnswersRecord(
+                    (prev) => ({...prev, [`single_choice-${data.id}`]:false})
+                )
+                return;
+            }
+        }
+
     }
 
 
@@ -136,6 +149,7 @@ export default function MultipleChoice({index,data,currentQuizIndex, setCurrentQ
                                     <span className={"relative top-[2px] font-bold"}>Next</span>
                                 </Button>
                         }
+
                     </div>
                 </div>
             }

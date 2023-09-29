@@ -41,6 +41,22 @@ export default function TrueOrFalse({index,data,currentQuizIndex, setCurrentQuiz
         // if answers all false, return
         if(answers.every((answer) => answer === false)) return;
         setShowAnswer(!showAnswer)
+
+        setAnswersRecord(
+            (prev) => ({...prev, [`true_or_false-${data.id}`]:false})
+        )
+
+        if(dataFormat.isTrue === true && answers[0] === true){
+            setAnswersRecord(
+                (prev) => ({...prev, [`true_or_false-${data.id}`]:true})
+            )
+        }
+        if(dataFormat.isTrue === false && answers[0] === false){
+            setAnswersRecord(
+                (prev) => ({...prev, [`true_or_false-${data.id}`]:true})
+            )
+        }
+
     }
 
 

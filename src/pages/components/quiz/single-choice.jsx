@@ -60,6 +60,17 @@ export default function SingleChoice({index,data,currentQuizIndex, setCurrentQui
         // if answers all false, return
         if(answers.every((answer) => answer === false)) return;
         setShowAnswer(!showAnswer)
+        setAnswersRecord(
+            (prev) => ({...prev, [`single_choice-${data.id}`]:false})
+        )
+        for (let i = 0; i <  answers.length; i++) {
+            if(answers[i] === true && dataFormat.options[i].isCorrect === true){
+                setAnswersRecord(
+                    (prev) => ({...prev, [`single_choice-${data.id}`]:true})
+                )
+                return;
+            }
+        }
     }
 
     return (
@@ -114,7 +125,6 @@ export default function SingleChoice({index,data,currentQuizIndex, setCurrentQui
                                     <span className={"relative top-[2px] font-bold"}>Next</span>
                                 </Button>
                         }
-
                     </div>
                 </div>
             }

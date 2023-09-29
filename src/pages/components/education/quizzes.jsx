@@ -38,25 +38,26 @@ export default function Quizzes({classID}) {
             setClassData(res.data)
 
             let quizzes = [
-                // ...res.data.attributes.single_choice.map((item) => {
-                //     item.type = "single_choice"
-                //     return item
-                // }),
-                // ...res.data.attributes.multiple_choice.map((item) => {
-                //     item.type = "multiple_choice"
-                //     return item
-                // }),
-                // ...res.data.attributes.true_or_false.map((item) => {
-                //     item.type = "true_or_false"
-                //     return item
-                // }),
+                ...res.data.attributes.single_choice.map((item) => {
+                    item.type = "single_choice"
+                    return item
+                }),
+                ...res.data.attributes.multiple_choice.map((item) => {
+                    item.type = "multiple_choice"
+                    return item
+                }),
+                ...res.data.attributes.true_or_false.map((item) => {
+                    item.type = "true_or_false"
+                    return item
+                }),
                 ...res.data.attributes.fill_in_blanks.map((item) => {
                     item.type = "fill_in_blanks"
                     return item
                 }),
             ]
+
             let randomQuizzes = quizzes.sort(() => Math.random() - 0.5);
-            setAllQuizzes(randomQuizzes.slice(0,1))
+            setAllQuizzes(randomQuizzes.slice(0, 1))
         }
 
         getClassData();
@@ -71,20 +72,20 @@ export default function Quizzes({classID}) {
     }, [currentQuizIndex]);
 
     useEffect(() => {
-        if(allQuizzes === null) return;
+        if (allQuizzes === null) return;
 
         console.log("answersRecord", answersRecord)
         let correctAnswersNum = 0;
-        for (let key in answersRecord){
-            if(answersRecord[key]===true){
+        for (let key in answersRecord) {
+            if (answersRecord[key] === true) {
                 correctAnswersNum++;
             }
         }
         setCorrectAnswersNum(correctAnswersNum)
 
-        if( correctAnswersNum / allQuizzes.length * 100 > 80){
+        if (correctAnswersNum / allQuizzes.length * 100 > 80) {
             setPassed(true)
-        }else{
+        } else {
             setPassed(false)
         }
     }, [answersRecord]);
@@ -101,11 +102,12 @@ export default function Quizzes({classID}) {
         }, 4000);
 
     }, [showResult]);
-    function retake(){
+
+    function retake() {
         setCurrentQuizIndex(0)
         setShowResult(false)
         // reload page
-        setKey(key+1)
+        setKey(key + 1)
     }
 
     return (
@@ -115,25 +117,7 @@ export default function Quizzes({classID}) {
                 <div className={"bg-transparent w-full"} key={key}>
                     {
                         allQuizzes.map((quiz, index) => {
-                            if (quiz.type === "fill_in_blanks") {
-                                return <FillInBlanks key={index}
-                                                     index={index}
-                                                     data={quiz}
-                                                     currentQuizIndex={currentQuizIndex}
-                                                     setCurrentQuizIndex={setCurrentQuizIndex}
-                                                     setAnswersRecord={setAnswersRecord}
-                                ></FillInBlanks>
-                            }
-                            else if (quiz.type === "multiple_choice") {
-                                return <MultipleChoice key={index}
-                                                       index={index}
-                                                       data={quiz}
-                                                       currentQuizIndex={currentQuizIndex}
-                                                       setCurrentQuizIndex={setCurrentQuizIndex}
-                                                       setAnswersRecord={setAnswersRecord}
-                                ></MultipleChoice>
-                            }
-                            else if (quiz.type === "single_choice") {
+                            if (quiz.type === "single_choice") {
                                 return <SingleChoice key={index}
                                                      index={index}
                                                      data={quiz}
@@ -141,8 +125,23 @@ export default function Quizzes({classID}) {
                                                      setCurrentQuizIndex={setCurrentQuizIndex}
                                                      setAnswersRecord={setAnswersRecord}
                                 ></SingleChoice>
-                            }
-                            else if (quiz.type === "true_or_false") {
+                            } else if (quiz.type === "multiple_choice") {
+                                return <MultipleChoice key={index}
+                                                       index={index}
+                                                       data={quiz}
+                                                       currentQuizIndex={currentQuizIndex}
+                                                       setCurrentQuizIndex={setCurrentQuizIndex}
+                                                       setAnswersRecord={setAnswersRecord}
+                                ></MultipleChoice>
+                            } else if (quiz.type === "fill_in_blanks") {
+                                return <FillInBlanks key={index}
+                                                     index={index}
+                                                     data={quiz}
+                                                     currentQuizIndex={currentQuizIndex}
+                                                     setCurrentQuizIndex={setCurrentQuizIndex}
+                                                     setAnswersRecord={setAnswersRecord}
+                                ></FillInBlanks>
+                            } else if (quiz.type === "true_or_false") {
                                 return <TrueOrFalse key={index}
                                                     index={index}
                                                     data={quiz}
@@ -157,7 +156,7 @@ export default function Quizzes({classID}) {
                         showResult && allQuizzes &&
                         <div className={"text-white w-full flex flex-col items-center"}>
                             <div className={"mb-8"}>QUIZ RESULT</div>
-                            <Card className="w-[240px] h-[240px] border-none"  aria-label="card">
+                            <Card className="w-[240px] h-[240px] border-none" aria-label="card">
                                 <CardBody className="justify-center items-center pb-0">
                                     <CircularProgress
                                         classNames={{
@@ -190,7 +189,7 @@ export default function Quizzes({classID}) {
                             <div className={"mt-6"}>
                                 {
                                     passed ? <div className={"text-green-400"}>YOU PASSED THE QUIZ</div>
-                                        : <div  className={"text-red-400"}>YOU FAILED THE QUIZ</div>
+                                        : <div className={"text-red-400"}>YOU FAILED THE QUIZ</div>
                                 }
                             </div>
                             <div className={"mt-6 w-[240px] flex justify-between"}>
