@@ -1,4 +1,4 @@
-//import FillInBlanks from "@/pages/components/quiz/fill-in-blanks";
+import FillInBlanks from "@/pages/components/quiz/fill-in-blanks";
 import MultipleChoice from "@/pages/components/quiz/multiple-choice";
 import React, {useEffect} from "react";
 import SingleChoice from "@/pages/components/quiz/single-choice";
@@ -42,10 +42,10 @@ export  default  function Quizzes({classID}){
             {
                 classData &&
                 <div className={"bg-transparent w-full"}>
-                    {/*<FillInBlanks></FillInBlanks>*/}
+                    <FillInBlanks data={fillInBlanks[0]}></FillInBlanks>
                     {/*<MultipleChoice data={multipleChoice[0]}></MultipleChoice>*/}
                     {/*<SingleChoice data={singleChoice[0]}></SingleChoice>*/}
-                    <TrueOrFalse data={trueOrFalse[0]}></TrueOrFalse>
+                    {/*<TrueOrFalse data={trueOrFalse[0]}></TrueOrFalse>*/}
                 </div>
             }
         </>
