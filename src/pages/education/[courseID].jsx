@@ -8,6 +8,7 @@ import React, {useEffect} from "react";
 import Quizzes from "@/pages/components/education/quizzes";
 import {useRouter} from "next/router";
 import MdViewer from "@/pages/components/education/md-viewer";
+import AccordionCard from "@/pages/components/education/accordion-card";
 
 export default function EducationUnit() {
     const searchParams = useSearchParams()
@@ -15,14 +16,14 @@ export default function EducationUnit() {
     const courseID = searchParams.get('courseID') &&  searchParams.get('courseID').split("=")[1]
     const classID = searchParams.get('class')
     const type = searchParams.get('type')
-    console.log(courseID, classID, type)
+    // console.log(courseID, classID, type)
 
     const router = useRouter();
-    function goTo(routerPath){
-        router.push(routerPath)
-    }
 
     const [courses, setCourses] = React.useState(null);
+    const [conclusion, setConclusion] = React.useState(null);
+    const [introduction, setIntroduction] = React.useState(null);
+    const [classIDState, setClassID] = React.useState(null);
 
     useEffect(() => {
         if(courseID===null) return;
@@ -37,12 +38,25 @@ export default function EducationUnit() {
             const data = await fetch(`${process.env.NEXT_PUBLIC_CMS_HOST_URL}/api/courses/${courseID}?populate=*`,options)
             const res = await data.json()
             const courses = res.data.attributes.classes.data;
-            console.log(courses)
+            // console.log(courses)
             setCourses(courses)
         }
         getClassData();
 
     }, [courseID]);
+
+    useEffect(() => {
+        if(courseID===null) return;
+        if(courses===null) return;
+        setConclusion(courses[Number(classID)-1].attributes.conclusion)
+        setIntroduction(courses[Number(classID)-1].attributes.introduction)
+        setClassID(classID)
+    }, [classID,courses]);
+
+    function goTo(classID, type){
+        const routerPath = `/education/course=${courseID}?class=${classID}&type=${type}`
+        router.push(routerPath)
+    }
 
 
 
@@ -55,90 +69,23 @@ export default function EducationUnit() {
                     {
                         courses && courses.map((course, index) => {
                             return (
-                                <div className={"m-4 mb-12"} key={index}>
-                                    <div className={"text-2xl font-bold ml-2"}>Class {index+1}</div>
-                                    <Accordion selectionMode="multiple" variant="light">
-                                        <AccordionItem key="1" aria-label="Accordion 1" title="Learn" className={"cursor-pointer"}>
-                                            <BsFillCheckCircleFill color="#46d369" className="inline-block relative bottom-0.5 mr-1"/>
-                                            <span onClick={() => goTo(`/education/course=${courseID}?class=1&type=video`)}
-                                            >Video: {course.attributes.title}</span>
-                                        </AccordionItem>
-                                        <AccordionItem key="2" aria-label="Accordion 2" title="Quiz"  className={"cursor-pointer"}>
-                                            <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1"/>
-                                            <span  onClick={() => goTo(`/education/course=${courseID}?class=1&type=quiz`)}
-                                            >Quiz: Class {index+1}</span>
-                                        </AccordionItem>
-                                        <AccordionItem key="3" aria-label="Accordion 3" title="Review"  className={"cursor-pointer"}>
-                                            <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1"/>
-                                            <span  onClick={() => goTo(`/education/course=${courseID}?class=1&type=review`)}
-                                            > Review: Class {index+1}</span>
-                                        </AccordionItem>
-                                    </Accordion>
-                                </div>
+                                <AccordionCard key={index} index={index} courseID={courseID} course={course}/>
                             )
                         } )
                     }
                 </div>
-
-                {/*<div className={"w-1/4 text-white max-w-xs mt-6 overflow-x-auto no-scrollbar"}>*/}
-                {/*    <div className={"m-4 mb-12"}>*/}
-                {/*        <div className={"text-2xl font-bold ml-2"}>Class1 </div>*/}
-                {/*        <Accordion selectionMode="multiple" variant="light">*/}
-                {/*            <AccordionItem key="1" aria-label="Accordion 1" title="Learn" className={"cursor-pointer"}>*/}
-                {/*                <BsFillCheckCircleFill color="#46d369" className="inline-block relative bottom-0.5 mr-1"/>*/}
-                {/*                <span onClick={() => goTo(`/education/course=${courseID}?class=1&type=video`)}*/}
-                {/*                >Video: this is video title</span>*/}
-                {/*            </AccordionItem>*/}
-                {/*            <AccordionItem key="2" aria-label="Accordion 2" title="Quiz"  className={"cursor-pointer"}>*/}
-                {/*                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1"/>*/}
-                {/*                <span  onClick={() => goTo(`/education/course=${courseID}?class=1&type=quiz`)}*/}
-                {/*                >Quiz: this is quiz title</span>*/}
-                {/*            </AccordionItem>*/}
-                {/*            <AccordionItem key="3" aria-label="Accordion 3" title="Review"  className={"cursor-pointer"}>*/}
-                {/*                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1"/>*/}
-                {/*                <span  onClick={() => goTo(`/education/course=${courseID}?class=1&type=review`)}*/}
-                {/*                > Review: this is review title</span>*/}
-                {/*            </AccordionItem>*/}
-                {/*        </Accordion>*/}
-                {/*    </div>*/}
-                {/*    <div className={"m-4 mb-12"}>*/}
-                {/*        <div className={"text-2xl font-bold ml-2"}>Class2 </div>*/}
-                {/*        <Accordion selectionMode="multiple" variant="light">*/}
-                {/*            <AccordionItem key="1" aria-label="Accordion 1" title="Learn" className={"cursor-pointer"}>*/}
-                {/*                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1" />  Video: this is video title*/}
-                {/*            </AccordionItem>*/}
-                {/*            <AccordionItem key="2" aria-label="Accordion 2" title="Quiz"  className={"cursor-pointer"}>*/}
-                {/*                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1" />  Quiz: this is quiz title*/}
-                {/*            </AccordionItem>*/}
-                {/*            <AccordionItem key="3" aria-label="Accordion 3" title="Review"  className={"cursor-pointer"}>*/}
-                {/*                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1" />  Review: this is review title*/}
-                {/*            </AccordionItem>*/}
-                {/*        </Accordion>*/}
-                {/*    </div>*/}
-                {/*    <div className={"m-4 mb-12"}>*/}
-                {/*        <div className={"text-2xl font-bold ml-2"}>Class3 </div>*/}
-                {/*        <Accordion selectionMode="multiple" variant="light">*/}
-                {/*            <AccordionItem key="1" aria-label="Accordion 1" title="Learn" className={"cursor-pointer"}>*/}
-                {/*                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1" />  Video: this is video title*/}
-                {/*            </AccordionItem>*/}
-                {/*            <AccordionItem key="2" aria-label="Accordion 2" title="Quiz"  className={"cursor-pointer"}>*/}
-                {/*                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1" />  Quiz: this is quiz title*/}
-                {/*            </AccordionItem>*/}
-                {/*            <AccordionItem key="3" aria-label="Accordion 3" title="Review"  className={"cursor-pointer"}>*/}
-                {/*                <BsCircle  color="#46d369" className="inline-block  relative bottom-0.5 mr-1" />  Review: this is review title*/}
-                {/*            </AccordionItem>*/}
-                {/*        </Accordion>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 <div className={"my-8 relative w-3/4"}>
+                    {
+                        type === "intro" && <MdViewer content={introduction} />
+                    }
                     {
                         type === "video" &&  <VideoPlayer  />
                     }
                     {
-                        type === "quiz" && <Quizzes />
+                        type === "quiz" && <Quizzes classID={classIDState} />
                     }
                     {
-                        type === "review" && <MdViewer />
+                        type === "review" && <MdViewer content={conclusion} />
                     }
 
                     <div className={"absolute bottom-0 w-full flex flex-row justify-between"}>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import {BsFillPlayFill} from "react-icons/bs";
 import {Button} from "@nextui-org/react";
 import {useRouter} from "next/router";
+import {useEffect, useState} from "react";
 
 export default function EducationCard({course}){
     const router = useRouter();
@@ -9,6 +10,14 @@ export default function EducationCard({course}){
         const url  =`/education/course=${course.id}?class=1&type=video`;
         router.push(url)
     }
+    const [disabled, setDisabled] = useState(false);
+
+    useEffect(() => {
+        if(course.id===null) return;
+        if(course.id===1) {
+            setDisabled(false)
+        }
+    }, []);
 
 
     return (
@@ -29,7 +38,7 @@ export default function EducationCard({course}){
                     <div>
                         <Button className={"bg-white font-bold rounded mr-[10px] cursor-pointer"}
                                 startContent={<BsFillPlayFill className={"text-4xl"}/>}
-                                // isDisabled={course.id !== 0}
+                                isDisabled={disabled}
                                 onClick={() => goToCourse()}
                         >
                             <span className={"relative top-[2px] font-bold"}>Start</span>
