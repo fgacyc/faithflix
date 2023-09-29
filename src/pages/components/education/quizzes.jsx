@@ -2,7 +2,7 @@
 import MultipleChoice from "@/pages/components/quiz/multiple-choice";
 import React, {useEffect} from "react";
 import SingleChoice from "@/pages/components/quiz/single-choice";
-//import TrueOrFalse from "@/pages/components/quiz/true-or-false";
+import TrueOrFalse from "@/pages/components/quiz/true-or-false";
 
 export  default  function Quizzes({classID}){
     console.log("classID",classID)
@@ -43,9 +43,9 @@ export  default  function Quizzes({classID}){
                 classData &&
                 <div className={"bg-transparent w-full"}>
                     {/*<FillInBlanks></FillInBlanks>*/}
-                    <MultipleChoice data={multipleChoice[0]}></MultipleChoice>
+                    {/*<MultipleChoice data={multipleChoice[0]}></MultipleChoice>*/}
                     {/*<SingleChoice data={singleChoice[0]}></SingleChoice>*/}
-                    {/*<TrueOrFalse></TrueOrFalse>*/}
+                    <TrueOrFalse data={trueOrFalse[0]}></TrueOrFalse>
                 </div>
             }
         </>

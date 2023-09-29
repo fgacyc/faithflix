@@ -96,7 +96,7 @@ export default function EducationUnit() {
                         >
                             <span className={"relative top-[2px] font-bold"}> Previous</span>
                         </Button>
-                        <Button className={"bg-[rgba(109,109,109,0.3)] text-white rounded"}
+                        <Button className={"bg-[rgba(109,109,109,0.3)] text-white rounded w-[120px] text-right"}
                                 endContent={
                                     <FiChevronRight className={"text-2xl"}  color="white"/>}
                                 // onPress={onOpen}
