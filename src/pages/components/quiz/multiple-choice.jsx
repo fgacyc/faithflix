@@ -4,7 +4,7 @@ import CorrectTip from "@/pages/components/quiz/correct-tip";
 import InCorrectTip from "@/pages/components/quiz/incorrect-tip";
 import {shuffleArray} from "@/pages/components/quiz/tools";
 
-export default function MultipleChoice({index,data,currentQuizIndex, setCurrentQuizIndex}) {
+export default function MultipleChoice({index,data,currentQuizIndex, setCurrentQuizIndex,setAnswersRecord}) {
     const [answers, setAnswers] = React.useState([false, false, false, false]);
     const [showAnswer, setShowAnswer] = React.useState(false);
     const [dataFormat, setDataFormat] = React.useState(null);
@@ -81,7 +81,7 @@ export default function MultipleChoice({index,data,currentQuizIndex, setCurrentQ
     function handleChange(index, value) {
         answers[index] = value
         setAnswers(answers)
-        console.log(answers)
+        //console.log(answers)
     }
 
 

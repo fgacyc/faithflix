@@ -3,10 +3,11 @@ import React, {useEffect} from "react";
 import CorrectTip from "@/pages/components/quiz/correct-tip";
 import InCorrectTip from "@/pages/components/quiz/incorrect-tip";
 
-export default function TrueOrFalse({index,data,currentQuizIndex, setCurrentQuizIndex}) {
+export default function TrueOrFalse({index,data,currentQuizIndex, setCurrentQuizIndex,setAnswersRecord}) {
     const [answers, setAnswers] = React.useState([false, false]);
     const [showAnswer, setShowAnswer] = React.useState(false);
     const [dataFormat, setDataFormat] = React.useState(null);
+
 
     useEffect(() => {
         let dataFormat = formatData(data)
@@ -32,7 +33,7 @@ export default function TrueOrFalse({index,data,currentQuizIndex, setCurrentQuiz
         const newArray = new Array(2).fill(false);
         newArray[index] = value
         setAnswers(newArray)
-        console.log(answers)
+        //console.log(answers)
     }
 
 

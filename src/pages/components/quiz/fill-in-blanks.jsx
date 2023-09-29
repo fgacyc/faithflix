@@ -3,7 +3,7 @@ import CorrectTip from "@/pages/components/quiz/correct-tip";
 import InCorrectTip from "@/pages/components/quiz/incorrect-tip";
 import React, {useEffect} from "react";
 
-export  default  function FillInBlanks({index,data,currentQuizIndex, setCurrentQuizIndex}){
+export  default  function FillInBlanks({index,data,currentQuizIndex, setCurrentQuizIndex,setAnswersRecord}){
     const [showAnswer, setShowAnswer] = React.useState(false);
     const [answers, setAnswers] = React.useState(null);
     const [dataFormat, setDataFormat] = React.useState(null);
@@ -49,6 +49,21 @@ export  default  function FillInBlanks({index,data,currentQuizIndex, setCurrentQ
         class="fill-black-inputs mx-2" />`);
     }
 
+    function resultRecord(){
+        if(answers === null) return;
+        for (let i=0;i<dataFormat.length;i++){
+            if(answers[i] !== dataFormat[i].answer){
+                setAnswersRecord(
+                    (prev) => ({...prev, [`fill_in_blanks-${data.id}`]:false})
+                )
+                return;
+            }
+        }
+        setAnswersRecord(
+            (prev) => ({...prev, [`fill_in_blanks-${data.id}`]:true})
+        )
+    }
+
     function  handleClick(){
         let values =[];
         let DOMs = document.getElementsByClassName("fill-black-inputs");
@@ -65,6 +80,12 @@ export  default  function FillInBlanks({index,data,currentQuizIndex, setCurrentQ
         setAnswers(values);
         setShowAnswer(!showAnswer);
     }
+
+    useEffect(() => {
+        resultRecord();
+    }, [answers]);
+
+
     return (
         <>
             {
@@ -101,7 +122,7 @@ export  default  function FillInBlanks({index,data,currentQuizIndex, setCurrentQ
                             showAnswer === false ?
                                 <Button className={"bg-[rgba(109,109,109,0.3)] text-white rounded"}
                                         onClick={handleClick}>
-                                    <span className={"relative top-[2px] font-bold"}>Next</span>
+                                    <span className={"relative top-[2px] font-bold"}>Check Answer</span>
                                 </Button>
                                 :  <Button className={"bg-[rgba(109,109,109,0.3)] text-white rounded"}
                                            onClick={() => setCurrentQuizIndex(currentQuizIndex+1)}

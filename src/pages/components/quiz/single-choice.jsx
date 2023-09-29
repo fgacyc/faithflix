@@ -4,10 +4,12 @@ import InCorrectTip from "@/pages/components/quiz/incorrect-tip";
 import CorrectTip from "@/pages/components/quiz/correct-tip";
 import {shuffleArray} from "@/pages/components/quiz/tools";
 
-export default function SingleChoice({index,data,currentQuizIndex, setCurrentQuizIndex}) {
+export default function SingleChoice({index,data,currentQuizIndex, setCurrentQuizIndex,setAnswersRecord}) {
     const [answers, setAnswers] = React.useState([false, false, false, false]);
     const [showAnswer, setShowAnswer] = React.useState(false);
     const [dataFormat, setDataFormat] = React.useState(null);
+
+    // console.log("data",data)
 
 
     useEffect(() => {
@@ -49,7 +51,7 @@ export default function SingleChoice({index,data,currentQuizIndex, setCurrentQui
         const newArray = new Array(4).fill(false);
         newArray[index] = value
         setAnswers(newArray)
-        console.log(answers)
+        //console.log(answers)
     }
 
 
