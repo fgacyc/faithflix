@@ -13,7 +13,7 @@ export default function SingleChoice({data}) {
         let dataFormat = formatData(data)
         dataFormat.options = shuffleArray(dataFormat.options)
         setDataFormat(dataFormat)
-        console.log("dataFormat",dataFormat)
+        // console.log("dataFormat",dataFormat)
     }, [data]);
 
     function formatData(data) {

@@ -10,6 +10,9 @@ export  default  function Quizzes({classID}){
 
     const [classData, setClassData] = React.useState(null);
     const [singleChoice, setSingleChoice] = React.useState(null);
+    const [multipleChoice, setMultipleChoice] = React.useState(null);
+    const [trueOrFalse, setTrueOrFalse] = React.useState(null);
+    const [fillInBlanks, setFillInBlanks] = React.useState(null);
 
     useEffect(() => {
         if(classID===null) return;
@@ -25,6 +28,9 @@ export  default  function Quizzes({classID}){
             const res = await data.json()
             setClassData(res.data)
             setSingleChoice(res.data.attributes.single_choice)
+            setMultipleChoice(res.data.attributes.multiple_choice)
+            setTrueOrFalse(res.data.attributes.true_or_false)
+            setFillInBlanks(res.data.attributes.fill_in_blanks)
             console.log(res.data)
         }
         getClassData();
@@ -37,8 +43,8 @@ export  default  function Quizzes({classID}){
                 classData &&
                 <div className={"bg-transparent w-full"}>
                     {/*<FillInBlanks></FillInBlanks>*/}
-                    {/*<MultipleChoice></MultipleChoice>*/}
-                    <SingleChoice data={singleChoice[0]}></SingleChoice>
+                    <MultipleChoice data={multipleChoice[0]}></MultipleChoice>
+                    {/*<SingleChoice data={singleChoice[0]}></SingleChoice>*/}
                     {/*<TrueOrFalse></TrueOrFalse>*/}
                 </div>
             }
