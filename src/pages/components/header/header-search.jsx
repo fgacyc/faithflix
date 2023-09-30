@@ -8,7 +8,7 @@ import AdvanceSearch from "@/pages/components/header/advance-search";
 
 export default function HeaderSearch({searchBarVisible, showSearchBar, hideSearchBar, inputRef, searchBoxRef}) {
     const [inputValue, setInputValue] = useState("");
-    const {isOpen, onOpen, onOpenChange} = useDisclosure();
+    const {isOpen, onOpen,onClose, onOpenChange} = useDisclosure();
     return (
         <>
             <div
@@ -51,7 +51,7 @@ export default function HeaderSearch({searchBarVisible, showSearchBar, hideSearc
                         </div>
                 }
             </div>
-            <AdvanceSearch isOpen={isOpen}  onOpenChange={onOpenChange}/>
+            <AdvanceSearch isOpen={isOpen} onClose={onClose}  onOpenChange={onOpenChange}/>
         </>
     )
 }

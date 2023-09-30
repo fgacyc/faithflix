@@ -57,7 +57,8 @@ export default function Quizzes({classID}) {
             ]
 
             let randomQuizzes = quizzes.sort(() => Math.random() - 0.5);
-            setAllQuizzes(randomQuizzes.slice(0, 1))
+            setAllQuizzes(randomQuizzes.slice(0, 5))
+            //setAllQuizzes(randomQuizzes)
         }
 
         getClassData();
@@ -83,7 +84,7 @@ export default function Quizzes({classID}) {
         }
         setCorrectAnswersNum(correctAnswersNum)
 
-        if (correctAnswersNum / allQuizzes.length * 100 > 80) {
+        if (correctAnswersNum / allQuizzes.length * 100 >= 80) {
             setPassed(true)
         } else {
             setPassed(false)
