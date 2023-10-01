@@ -5,6 +5,8 @@ import {HiOutlineThumbDown, HiOutlineThumbUp} from "react-icons/hi";
 import React from "react";
 import Link from 'next/link'
 import {IoCheckmarkSharp} from "react-icons/io5";
+import {FiShare2} from "react-icons/fi";
+import PubSub from "pubsub-js";
 
 export default function CoverButtonCroup({videoData}){
     const [isAddOpen, setIsAddOpen] = React.useState(false);
@@ -24,6 +26,12 @@ export default function CoverButtonCroup({videoData}){
         setIsAdded(!isAdded);
     }
 
+    function openVideoShareModal() {
+        //console.log("openVideoShareModal")
+        PubSub.publish('videoShareModalVisible', {message: true});
+    }
+
+
 
     return (
         <div className={"absolute w-full bottom-0 bg-gradient-to-b from-transparent to-[#181818]"}>
@@ -32,7 +40,7 @@ export default function CoverButtonCroup({videoData}){
              w-4/6 mb-4 pl-12`}>
                 {videoData.title}
             </div>
-            <div className={"flex flex-row justify-between w-[260px] pl-12"}>
+            <div className={"flex flex-row justify-between w-[320px] pl-12"}>
                 <Button className={"bg-white font-bold rounded "}
                         startContent={<BsFillPlayFill className={"text-4xl"}/>}
                 >
@@ -86,7 +94,11 @@ export default function CoverButtonCroup({videoData}){
                         </div>
                     </PopoverContent>
                 </Popover>
-
+                <Button isIconOnly  variant="bordered"  radius="full" className="bg-[rgba(42,42,42,.6)]"
+                        onClick={openVideoShareModal}
+                >
+                    <FiShare2  color="white" size={"20"} />
+                </Button>
             </div>
             <div className={"h-[60px]"}></div>
         </div>

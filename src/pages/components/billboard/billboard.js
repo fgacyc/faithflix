@@ -5,6 +5,7 @@ import DetailModal from "@/pages/components/detail-modal/DetailModal";
 import VideoSectionArea from "@/pages/components/video-section/VideoSectionArea";
 import BillboardCard from "@/pages/components/billboard/BillboardCard";
 import GenreTitle from "@/pages/components/genre-title/GenreTitle";
+import VideoShareModel from "@/pages/components/video-share-model/videoShareModel";
 
 
 export default function Billboard({currentTabIndex}) {
@@ -64,6 +65,7 @@ export default function Billboard({currentTabIndex}) {
                     <VideoSectionArea classNames={`${currentTabIndex === 3 ? "mt-[30px]" : "absolute bottom-0" } sm:block hidden`}
                                       sectionTitle="Top 10 Videos Today"/>
                     <DetailModal isOpen={isOpen} onOpenChange={onOpenChange} videoData={videoData}/>
+                    <VideoShareModel />
                 </>
             }
 
