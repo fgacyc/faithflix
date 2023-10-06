@@ -27,6 +27,7 @@ export default function VideoShareModel(){
 
     useEffect(() => {
         const subscription = PubSub.subscribe('videoShareModalVisible', (msg, data) => {
+            onOpen();
             setVideoShareModelVisible(data.message);
         });
         return () => PubSub.unsubscribe(subscription);
@@ -70,10 +71,11 @@ export default function VideoShareModel(){
 
     return(
         <>
-            <Modal isOpen={true} onOpenChange={onOpenChange}
+            <Modal isOpen={videoShareModelVisible} onOpenChange={onOpenChange}
                    classNames={{
-                       closeButton: "bg-[#181818] text-white hover:bg-[#181818] active:border-2 active:border-white active:bg-[#181818]",
+                       closeButton: "bg-[#181818] text-white hover:bg-[#181818] active:border-2 active:border-white active:bg-[#181818]"
                    }}
+                   // backdrop={"blur"}  radius={"sm"}
             >
                 <ModalContent >
                     {(onClose) => (
