@@ -100,12 +100,12 @@ export default function HeaderAvatar() {
                               onClick={() => goTo("/history")}
                         >History</span>
                     </div>
-                    <div className="ml-2 mb-1  cursor-pointer">
-                        <PiStudent className={"text-[#B3B3B3] text-2xl inline-block m-1"}/>
-                        <span className={"ml-2 hover:underline"}
-                              onClick={() => goTo("/education")}
-                        >Education</span>
-                    </div>
+                    {/*<div className="ml-2 mb-1  cursor-pointer">*/}
+                    {/*    <PiStudent className={"text-[#B3B3B3] text-2xl inline-block m-1"}/>*/}
+                    {/*    <span className={"ml-2 hover:underline"}*/}
+                    {/*          onClick={() => goTo("/education")}*/}
+                    {/*    >Education</span>*/}
+                    {/*</div>*/}
                     <div className="ml-2 mb-1  cursor-pointer">
                         <BsQuestionCircle className={"text-[#B3B3B3] text-2xl inline-block m-1"}/>
                         <span className={"ml-2 hover:underline"}
