@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {Modal, ModalContent, ModalBody} from "@nextui-org/react";
 import CoverButtonCroup from "@/pages/components/detail-modal/CoverButtonGroup";
 import VideoDetailsArea from "@/pages/components/detail-modal/VideoDetailsArea";
-import EpisodesArea from "@/pages/components/detail-modal/EpisodesArea";
 import SimilarVideoArea from "@/pages/components/detail-modal/SimilarVideoArea";
 import VideoAboutArea from "@/pages/components/detail-modal/VideoAboutArea";
 import PubSub from "pubsub-js";
