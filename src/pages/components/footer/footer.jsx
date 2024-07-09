@@ -25,15 +25,19 @@ export default function Footer(){
             </div>
             <div className={"flex flex-col justify-between text-[#808080] h-[110px] mb-4"}>
                 <Link href={"/"} className={"hover:underline"}>Home</Link>
-                <Link href={"/"} className={"hover:underline"}>Terms and Conditions</Link>
-                <Link href={"/"} className={"hover:underline"}>Privacy Policy</Link>
+                <Link href={"https://www.fgacyc.tech/terms-of-service"} className={"hover:underline"}
+                    target={"_blank"}
+                >Terms and Conditions</Link>
+                <Link href={"https://www.fgacyc.tech/privacy-policy"} className={"hover:underline"}
+                    target={"_blank"}
+                >Privacy Policy</Link>
                 <Link href={"/"} className={"hover:underline"}>Collection Statemen</Link>
             </div>
             <div className={"flex flex-col justify-between text-[#808080] h-[110px] mb-4"}>
                 <Link href={"/"} className={"hover:underline"}>Help</Link>
                 <Link href={"/"} className={"hover:underline"}>Manage Account</Link>
                 <Link href={"/"} className={"hover:underline"}>Media Center</Link>
-                <Link href={"/"} className={"hover:underline"}>Investor Relations</Link>
+                <Link href={"/"} className={"hover:underline"}>Development Team</Link>
             </div>
         </div>
     )

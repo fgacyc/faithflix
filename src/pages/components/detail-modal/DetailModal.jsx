@@ -38,9 +38,9 @@ export default function DetailModal({isOpen, onOpenChange, videoData}) {
                         </div>
                         <div className={"md:px-12 sm:px-6 px-4"}>
                             <VideoDetailsArea videoData={videoData}/>
-                            {
-                                videoData.episodes.length > 1 && <EpisodesArea videoData={videoData}/>
-                            }
+                            {/*{*/}
+                            {/*    videoData.episodes.length > 1 && <EpisodesArea videoData={videoData}/>*/}
+                            {/*}*/}
                             <SimilarVideoArea videoData={videoData}/>
                             <VideoAboutArea videoData={videoData}/>
                         </div>

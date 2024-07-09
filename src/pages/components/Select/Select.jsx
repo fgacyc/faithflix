@@ -42,7 +42,7 @@ export default function Select({data,value,setValue}) {
         <div className={"relative select-none mt-2 z-50"} ref={selectRef}>
             <div className={`flex flex-row justify-between items-center cursor-pointer
                     w-28 h-7 bg-black p-2 text-sm
-                    text-white text-[1.4vw] font-bold border
+                    text-white  lg:text-xl md:text-lg sm:text-base text-base font-bold border
                     hover:bg-transparent
                     relative bottom-1
                     `}
@@ -54,7 +54,7 @@ export default function Select({data,value,setValue}) {
                 <BiSolidDownArrow className={`${isOpen ? "rotate-180" : ""} scale-75`}/>
             </div>
             <div className={`absolute w-28 top-[h-6] text-sm
-                    bg-black text-white text-[1.4vw] font-bold
+                    bg-black text-white  lg:text-xl md:text-lg sm:text-base text-base font-bold
                      ${isOpen ? "block" : "hidden"}
             `}>
                 {
