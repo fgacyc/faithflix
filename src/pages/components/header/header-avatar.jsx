@@ -8,7 +8,7 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 import {useUser} from "@auth0/nextjs-auth0/client";
 import {useUserStore} from "@/status/user-info-store";
-import {getUserinfo, updateLoginTime} from "@/pages/components/header/userinfo-api";
+import {getUserinfo, updateLoginTime} from "@/components/header/userinfo-api";
 
 export default function HeaderAvatar() {
     const [isRotated, setIsRotated] = useState(false);

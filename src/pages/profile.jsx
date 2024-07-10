@@ -1,12 +1,12 @@
-import Billboard from "@/pages/components/billboard/billboard";
-import Select from "@/pages/components/Select/Select";
+import Billboard from "@/components/billboard/billboard";
+import Select from "@/components/Select/Select";
 import {useEffect} from "react";
 import {Button, Switch} from "@nextui-org/react";
 import {EditIcon} from "@/graphics/EditIcon";
 import React from "react";
 import {useRouter} from "next/router";
 import {useUserStore} from "@/status/user-info-store";
-import {upsertUserInfo, getUserinfo} from "@/pages/components/header/userinfo-api";
+import {upsertUserInfo, getUserinfo} from "@/components/header/userinfo-api";
 
 export default function Profile() {
     const uploaderRef = React.useRef(null);

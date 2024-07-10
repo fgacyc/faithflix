@@ -1,6 +1,6 @@
 import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
 import {useEffect, useState, useRef} from "react";
-import VideoCard from "@/pages/components/video-section/VideoCard";
+import VideoCard from "@/components/video-section/VideoCard";
 import {BiSolidChevronRight} from "react-icons/bi";
 
 

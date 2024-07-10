@@ -1,4 +1,4 @@
-import UISelect from "@/pages/components/genre-title/UI-Select";
+import UISelect from "@/components/genre-title/UI-Select";
 import Link from "next/link";
 import {FiChevronRight} from "react-icons/fi";
 import {useRouter} from "next/router";

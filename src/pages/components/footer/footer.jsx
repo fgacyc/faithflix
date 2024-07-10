@@ -3,8 +3,9 @@ import {InstagramIcon} from "@/graphics/InstagramIcon";
 import {YoutubeIcon} from "@/graphics/YoutubeIcon";
 import {ThreadsIcon} from "@/graphics/ThreadsIcon";
 import React from "react";
-import LanguageSelect from "@/pages/components/footer/LanguageSelect";
+//import LanguageSelect from "@/components/footer/LanguageSelect";
 import Link from "next/link";
+import LanguageSelect from "@/components/footer/LanguageSelect";
 
 
 export default function Footer(){
