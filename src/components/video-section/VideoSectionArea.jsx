@@ -110,7 +110,7 @@ export default function VideoSectionArea({ classNames, sectionTitle }) {
   return (
     <div className={`${classNames}`}>
       <div
-        className={`text-white font-bold text-[1.4vw] mb-2 
+        className={`text-white font-bold lg:text-xl md:text-lg sm:text-base text-base mb-2 
                 lg:ml-[50px] md:ml-[30px] sm:ml-[15px] ml-[15px]
                  flex items-center  overflow-hidden relative`}
         // onMouseEnter={() => setBlueRightArrowVisible(true)}
