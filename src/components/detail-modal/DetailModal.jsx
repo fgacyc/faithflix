@@ -7,39 +7,8 @@ import SimilarVideoArea from "@/components/detail-modal/SimilarVideoArea";
 import VideoAboutArea from "@/components/detail-modal/VideoAboutArea";
 import PubSub from "pubsub-js";
 
-export default function DetailModal({ isOpen, onOpenChange }) {
+export default function DetailModal({ isOpen, onOpenChange, videoData }) {
   const [detailModalVisible, setDetailModalVisible] = useState(false);
-
-  const videoData = {
-    id: "8sJlFZZxoag",
-    title: "There is a miracle in your mouth",
-    cover: "/images/There_is_ a_miracle.jpg",
-    description:
-        "There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth There is a miracle in your mouth",
-    duration: 3600, //seconds
-    year: "2021",
-    creators: ["John Doe", "Jane Doe"],
-    cast: ["John Doe", "Jane Doe", "John Doe", "Jane Doe"],
-    genres: ["Drama", "Faith"],
-    tags: ["Drama", "Faith", "Drama", "Faith", "Drama", "Faith"],
-    likes_radio: 0.97,
-    episodes: [
-      "video1",
-      "video2",
-      "video3",
-      "video4",
-      "video5",
-      "video6",
-      "video7",
-      "video8",
-      "video9",
-      "video10",
-    ],
-    clarity: ["1080p", "720p", "480p"],
-    subtitle: ["English", "Chinese"],
-  };
-
-  // console.log("videoData", videoData);
 
   useEffect(() => {
     setDetailModalVisible(isOpen);
@@ -67,19 +36,16 @@ export default function DetailModal({ isOpen, onOpenChange }) {
         }}
       >
         <ModalContent>
-          {
-              videoData.hasOwnProperty("cover") && <img src={videoData.cover} alt="video cover"/>
-          }
-
+          <img src={videoData.cover} alt="video cover" />
           <ModalBody className={"px-0 bg-[#181818] pt-0 text-white"}>
             <div className={"relative"}>
               <CoverButtonCroup videoData={videoData} />
             </div>
             <div className={"md:px-12 sm:px-6 px-4"}>
               <VideoDetailsArea videoData={videoData} />
-              {/*{videoData.episodes.length > 1 && (*/}
-              {/*  <EpisodesArea videoData={videoData} />*/}
-              {/*)}*/}
+              {videoData.episodes.length > 1 && (
+                <EpisodesArea videoData={videoData} />
+              )}
               <SimilarVideoArea videoData={videoData} />
               <VideoAboutArea videoData={videoData} />
             </div>

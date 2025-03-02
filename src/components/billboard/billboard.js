@@ -86,6 +86,7 @@ export default function Billboard({ currentTabIndex }) {
           <DetailModal
             isOpen={isOpen}
             onOpenChange={onOpenChange}
+            videoData={videoData}
           />
           <VideoShareModel />
         </>
