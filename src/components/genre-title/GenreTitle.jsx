@@ -93,7 +93,7 @@ export default function GenreTitle({ currentTabIndex }) {
             className={"text-white text-2xl mx-4"}
             color="#808080"
           />
-          <div className={"text-white lg:text-xl md:text-lg sm:text-base text-base font-bold"}>{genre_id}</div>
+          <div className={"text-white text-[1.4vw] font-bold"}>{genre_id}</div>
         </div>
       ) : (
         <div

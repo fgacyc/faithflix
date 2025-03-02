@@ -38,7 +38,7 @@ export  default function HeaderNotificationIcon({className}) {
                 className={`border-x-5 border-t-5 border-x-transparent border-t-white border-solid absolute top-[55px] right-[135px]
                   h-0 w-0 m-0  rotate-180 } ${visible? "": 'hidden'}`}
             />
-            <div className={`absolute top-[60px] sm:right-[120px] right-0 sm:w-[380px] w-full h-[600px] border
+            <div className={`absolute top-[60px] right-[120px] w-[380px] h-[600px] border
             border-gray-600 bg-[rgba(0,0,0,.7)] overflow-y-auto ${visible? "": 'hidden'}`}>
                 {
                     cardData.map((item, index) => {

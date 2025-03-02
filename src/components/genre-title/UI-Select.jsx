@@ -19,7 +19,7 @@ export default function UISelect({data}) {
         <div className={"relative select-none"}>
             <div className={`flex flex-row justify-between items-center cursor-pointer
                     w-28 h-7 bg-black p-2 text-sm
-                    text-white lg:text-xl md:text-lg sm:text-base text-base font-bold border
+                    text-white text-[1.4vw] font-bold border
                     hover:bg-transparent
                     relative bottom-1
                     `}
@@ -31,7 +31,7 @@ export default function UISelect({data}) {
                 <BiSolidDownArrow className={`${isOpen ? "rotate-180" : ""} scale-75`}/>
             </div>
             <div className={`absolute w-28 top-[h-6] text-sm
-                    bg-black text-white lg:text-xl md:text-lg sm:text-base text-base font-bold p-2
+                    bg-black text-white text-[1.4vw] font-bold p-2
                      ${isOpen ? "block" : "hidden"}
             `}>
                 {
